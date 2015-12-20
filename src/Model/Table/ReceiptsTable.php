@@ -30,7 +30,10 @@ class ReceiptsTable extends Table
         $this->primaryKey('id');
 
         $this->addBehavior('Timestamp');
-
+        $this->addBehavior('Utils.Uploadable', [
+            'filename',
+        ]);
+        
         $this->belongsTo('Users', [
             'foreignKey' => 'user_id',
             'joinType' => 'INNER'
