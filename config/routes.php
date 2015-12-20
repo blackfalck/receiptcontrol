@@ -41,6 +41,14 @@ use Cake\Routing\Router;
  */
 Router::defaultRouteClass('DashedRoute');
 
+Router::scope(
+    '/receipts',
+    ['controller' => 'Receipts'],
+    function ($routes) {
+        $routes->connect('/search/*', ['action' => 'index']);
+    }
+);
+
 Router::scope('/', function ($routes) {
     /**
      * Here, we are connecting '/' (base path) to a controller called 'Pages',

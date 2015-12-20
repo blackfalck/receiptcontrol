@@ -1,0 +1,485 @@
+# LANGUAGE translation of CakePHP Application
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2015-12-20 20:38+0000\n"
+"PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+#: Controller/ReceiptsController.php:74;100
+msgid "The receipt has been saved."
+msgstr ""
+
+#: Controller/ReceiptsController.php:77;103
+msgid "The receipt could not be saved. Please, try again."
+msgstr ""
+
+#: Controller/ReceiptsController.php:123
+msgid "The receipt has been deleted."
+msgstr ""
+
+#: Controller/ReceiptsController.php:125
+msgid "The receipt could not be deleted. Please, try again."
+msgstr ""
+
+#: Controller/UsersController.php:52;77
+msgid "The user has been saved."
+msgstr ""
+
+#: Controller/UsersController.php:55;80
+msgid "The user could not be saved. Please, try again."
+msgstr ""
+
+#: Controller/UsersController.php:99
+msgid "The user has been deleted."
+msgstr ""
+
+#: Controller/UsersController.php:101
+msgid "The user could not be deleted. Please, try again."
+msgstr ""
+
+#: Template/Receipts/add.ctp:3
+#: Template/Receipts/edit.ctp:3
+#: Template/Receipts/index.ctp:3;22
+#: Template/Receipts/search.ctp:3
+#: Template/Receipts/view.ctp:3
+#: Template/Users/add.ctp:3
+#: Template/Users/edit.ctp:3
+#: Template/Users/index.ctp:3;19
+#: Template/Users/view.ctp:3;50
+msgid "Actions"
+msgstr ""
+
+#: Template/Receipts/add.ctp:4
+#: Template/Receipts/edit.ctp:10
+#: Template/Receipts/search.ctp:4
+#: Template/Receipts/view.ctp:6
+#: Template/Users/add.ctp:5
+#: Template/Users/edit.ctp:11
+#: Template/Users/index.ctp:5
+#: Template/Users/view.ctp:8
+msgid "List Receipts"
+msgstr ""
+
+#: Template/Receipts/add.ctp:5
+#: Template/Receipts/edit.ctp:11
+#: Template/Receipts/index.ctp:5
+#: Template/Receipts/search.ctp:5
+#: Template/Receipts/view.ctp:8
+#: Template/Users/add.ctp:4
+#: Template/Users/edit.ctp:10
+#: Template/Users/view.ctp:6
+msgid "List Users"
+msgstr ""
+
+#: Template/Receipts/add.ctp:6
+#: Template/Receipts/edit.ctp:12
+#: Template/Receipts/index.ctp:6
+#: Template/Receipts/search.ctp:6
+#: Template/Receipts/view.ctp:9
+#: Template/Users/index.ctp:4
+#: Template/Users/view.ctp:7
+msgid "New User"
+msgstr ""
+
+#: Template/Receipts/add.ctp:12
+msgid "Add Receipt"
+msgstr ""
+
+#: Template/Receipts/add.ctp:22
+#: Template/Receipts/edit.ctp:28
+#: Template/Users/add.ctp:18
+#: Template/Users/edit.ctp:24
+#: View/Helper/FormHelper.php:1724
+msgid "Submit"
+msgstr ""
+
+#: Template/Receipts/edit.ctp:5
+#: Template/Receipts/index.ctp:38
+#: Template/Users/edit.ctp:5
+#: Template/Users/index.ctp:33
+#: Template/Users/view.ctp:68
+msgid "Delete"
+msgstr ""
+
+#: Template/Receipts/edit.ctp:7
+#: Template/Receipts/index.ctp:38
+#: Template/Receipts/view.ctp:5
+#: Template/Users/edit.ctp:7
+#: Template/Users/index.ctp:33
+#: Template/Users/view.ctp:5;68
+msgid "Are you sure you want to delete # {0}?"
+msgstr ""
+
+#: Template/Receipts/edit.ctp:18
+#: Template/Receipts/view.ctp:4
+msgid "Edit Receipt"
+msgstr ""
+
+#: Template/Receipts/index.ctp:4
+#: Template/Receipts/view.ctp:7
+#: Template/Users/add.ctp:6
+#: Template/Users/edit.ctp:12
+#: Template/Users/index.ctp:6
+#: Template/Users/view.ctp:9
+msgid "New Receipt"
+msgstr ""
+
+#: Template/Receipts/index.ctp:10
+msgid "Receipts"
+msgstr ""
+
+#: Template/Receipts/index.ctp:36
+#: Template/Users/index.ctp:31
+#: Template/Users/view.ctp:64
+msgid "View"
+msgstr ""
+
+#: Template/Receipts/index.ctp:37
+#: Template/Users/index.ctp:32
+#: Template/Users/view.ctp:66
+msgid "Edit"
+msgstr ""
+
+#: Template/Receipts/view.ctp:5
+msgid "Delete Receipt"
+msgstr ""
+
+#: Template/Receipts/view.ctp:16
+msgid "User"
+msgstr ""
+
+#: Template/Receipts/view.ctp:20
+#: Template/Users/view.ctp:43
+msgid "Title"
+msgstr ""
+
+#: Template/Receipts/view.ctp:24
+#: Template/Users/view.ctp:24;41
+msgid "Id"
+msgstr ""
+
+#: Template/Receipts/view.ctp:28
+#: Template/Users/view.ctp:46
+msgid "Warranty"
+msgstr ""
+
+#: Template/Receipts/view.ctp:32
+#: Template/Users/view.ctp:47
+msgid "Purchased"
+msgstr ""
+
+#: Template/Receipts/view.ctp:36
+#: Template/Users/view.ctp:28;48
+msgid "Created"
+msgstr ""
+
+#: Template/Receipts/view.ctp:40
+#: Template/Users/view.ctp:32;49
+msgid "Modified"
+msgstr ""
+
+#: Template/Receipts/view.ctp:45
+#: Template/Users/view.ctp:44
+msgid "Description"
+msgstr ""
+
+#: Template/Receipts/view.ctp:49
+#: Template/Users/view.ctp:45
+msgid "Filename"
+msgstr ""
+
+#: Template/Users/add.ctp:12
+msgid "Add User"
+msgstr ""
+
+#: Template/Users/edit.ctp:18
+#: Template/Users/view.ctp:4
+msgid "Edit User"
+msgstr ""
+
+#: Template/Users/index.ctp:10
+msgid "Users"
+msgstr ""
+
+#: Template/Users/index.ctp:41
+msgid "previous"
+msgstr ""
+
+#: Template/Users/index.ctp:43
+msgid "next"
+msgstr ""
+
+#: Template/Users/view.ctp:5
+msgid "Delete User"
+msgstr ""
+
+#: Template/Users/view.ctp:16
+msgid "Email"
+msgstr ""
+
+#: Template/Users/view.ctp:20
+msgid "Password"
+msgstr ""
+
+#: Template/Users/view.ctp:37
+msgid "Related Receipts"
+msgstr ""
+
+#: Template/Users/view.ctp:42
+msgid "User Id"
+msgstr ""
+
+#: Template/Error/error400.ctp:33
+#: Template/Error/error500.ctp:35
+msgid "Error"
+msgstr ""
+
+#: Template/Error/error400.ctp:35
+msgid "The requested address %s was not found on this server."
+msgstr ""
+
+#: Template/Error/error500.ctp:33
+msgid "An Internal Error Has Occurred"
+msgstr ""
+
+#: Controller/Component/AuthComponent.php:454
+msgid "You are not authorized to access that location."
+msgstr ""
+
+#: Controller/Component/CsrfComponent.php:155
+msgid "Missing CSRF token cookie"
+msgstr ""
+
+#: Controller/Component/CsrfComponent.php:159
+msgid "CSRF token mismatch."
+msgstr ""
+
+#: Error/ExceptionRenderer.php:249
+msgid "Not Found"
+msgstr ""
+
+#: Error/ExceptionRenderer.php:251
+msgid "An Internal Error Has Occurred."
+msgstr ""
+
+#: I18n/Number.php:89
+msgid "{0,number,#,###.##} KB"
+msgstr ""
+
+#: I18n/Number.php:91
+msgid "{0,number,#,###.##} MB"
+msgstr ""
+
+#: I18n/Number.php:93
+msgid "{0,number,#,###.##} GB"
+msgstr ""
+
+#: I18n/Number.php:95
+msgid "{0,number,#,###.##} TB"
+msgstr ""
+
+#: I18n/Number.php:87
+msgid "{0,number,integer} Byte"
+msgid_plural "{0,number,integer} Bytes"
+msgstr[0] ""
+msgstr[1] ""
+
+#: I18n/Time.php:271
+msgid "%s ago"
+msgstr ""
+
+#: I18n/Time.php:272
+msgid "on %s"
+msgstr ""
+
+#: I18n/Time.php:312
+msgid "just now"
+msgstr ""
+
+#: I18n/Time.php:428
+msgid "about a second ago"
+msgstr ""
+
+#: I18n/Time.php:429
+msgid "about a minute ago"
+msgstr ""
+
+#: I18n/Time.php:430
+msgid "about an hour ago"
+msgstr ""
+
+#: I18n/Time.php:431
+msgid "about a day ago"
+msgstr ""
+
+#: I18n/Time.php:432
+msgid "about a week ago"
+msgstr ""
+
+#: I18n/Time.php:433
+msgid "about a year ago"
+msgstr ""
+
+#: I18n/Time.php:442
+msgid "in about a second"
+msgstr ""
+
+#: I18n/Time.php:443
+msgid "in about a minute"
+msgstr ""
+
+#: I18n/Time.php:444
+msgid "in about an hour"
+msgstr ""
+
+#: I18n/Time.php:445
+msgid "in about a day"
+msgstr ""
+
+#: I18n/Time.php:446
+msgid "in about a week"
+msgstr ""
+
+#: I18n/Time.php:447
+msgid "in about a year"
+msgstr ""
+
+#: I18n/Time.php:401
+msgid "{0} year"
+msgid_plural "{0} years"
+msgstr[0] ""
+msgstr[1] ""
+
+#: I18n/Time.php:404
+msgid "{0} month"
+msgid_plural "{0} months"
+msgstr[0] ""
+msgstr[1] ""
+
+#: I18n/Time.php:407
+msgid "{0} week"
+msgid_plural "{0} weeks"
+msgstr[0] ""
+msgstr[1] ""
+
+#: I18n/Time.php:410
+msgid "{0} day"
+msgid_plural "{0} days"
+msgstr[0] ""
+msgstr[1] ""
+
+#: I18n/Time.php:413
+msgid "{0} hour"
+msgid_plural "{0} hours"
+msgstr[0] ""
+msgstr[1] ""
+
+#: I18n/Time.php:416
+msgid "{0} minute"
+msgid_plural "{0} minutes"
+msgstr[0] ""
+msgstr[1] ""
+
+#: I18n/Time.php:419
+msgid "{0} second"
+msgid_plural "{0} seconds"
+msgstr[0] ""
+msgstr[1] ""
+
+#: Network/Response.php:1438
+msgid "The requested file was not found"
+msgstr ""
+
+#: ORM/RulesChecker.php:49
+msgid "This value is already in use"
+msgstr ""
+
+#: ORM/RulesChecker.php:83
+msgid "This value does not exist"
+msgstr ""
+
+#: Utility/Text.php:724
+msgid "and"
+msgstr ""
+
+#: Validation/Validator.php:102
+msgid "This field is required"
+msgstr ""
+
+#: Validation/Validator.php:103
+msgid "This field cannot be left empty"
+msgstr ""
+
+#: Validation/Validator.php:663
+msgid "The provided value is invalid"
+msgstr ""
+
+#: View/Helper/FormHelper.php:925
+msgid "New %s"
+msgstr ""
+
+#: View/Helper/FormHelper.php:928
+msgid "Edit %s"
+msgstr ""
+
+#: View/Helper/HtmlHelper.php:770
+msgid "Home"
+msgstr ""
+
+#: View/Widget/DateTimeWidget.php:530
+msgid "January"
+msgstr ""
+
+#: View/Widget/DateTimeWidget.php:531
+msgid "February"
+msgstr ""
+
+#: View/Widget/DateTimeWidget.php:532
+msgid "March"
+msgstr ""
+
+#: View/Widget/DateTimeWidget.php:533
+msgid "April"
+msgstr ""
+
+#: View/Widget/DateTimeWidget.php:534
+msgid "May"
+msgstr ""
+
+#: View/Widget/DateTimeWidget.php:535
+msgid "June"
+msgstr ""
+
+#: View/Widget/DateTimeWidget.php:536
+msgid "July"
+msgstr ""
+
+#: View/Widget/DateTimeWidget.php:537
+msgid "August"
+msgstr ""
+
+#: View/Widget/DateTimeWidget.php:538
+msgid "September"
+msgstr ""
+
+#: View/Widget/DateTimeWidget.php:539
+msgid "October"
+msgstr ""
+
+#: View/Widget/DateTimeWidget.php:540
+msgid "November"
+msgstr ""
+
+#: View/Widget/DateTimeWidget.php:541
+msgid "December"
+msgstr ""
+
