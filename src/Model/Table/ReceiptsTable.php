@@ -30,9 +30,7 @@ class ReceiptsTable extends Table
         $this->primaryKey('id');
 
         $this->addBehavior('Timestamp');
-        $this->addBehavior('Utils.Uploadable', [
-            'filename',
-        ]);
+        
         
         $this->belongsTo('Users', [
             'foreignKey' => 'user_id',
@@ -60,6 +58,9 @@ class ReceiptsTable extends Table
 
         $validator
             ->allowEmpty('filename');
+        
+        $validator
+            ->allowEmpty('filename_original');
 
         $validator
             ->add('warranty', 'valid', ['rule' => 'numeric'])

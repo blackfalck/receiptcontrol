@@ -26,7 +26,7 @@
             <?php foreach ($receipts as $receipt): ?>
             <tr>
                 <td><?= $this->Number->format($receipt->id) ?></td>
-                <td><?= $receipt->has('user') ? $this->Html->link($receipt->user->id, ['controller' => 'Users', 'action' => 'view', $receipt->user->id]) : '' ?></td>
+               
                 <td><?= h($receipt->title) ?></td>
                 <td><?= $this->Number->format($receipt->warranty) ?></td>
                 <td><?= h($receipt->purchased) ?></td>
