@@ -10,6 +10,11 @@ use Cake\I18n\I18n;
  */
 class ReceiptsController extends AppController
 {
+    public function initialize()
+    {
+        parent::initialize();
+        $this->loadComponent('Upload');
+    }
 
     /**
      * Index method
@@ -91,11 +96,25 @@ class ReceiptsController extends AppController
      */
     public function edit($id = null)
     {
+        //delete old image
+        
         $receipt = $this->Receipts->get($id, [
             'contain' => []
         ]);
+        
         if ($this->request->is(['patch', 'post', 'put'])) {
-            $receipt = $this->Receipts->patchEntity($receipt, $this->request->data);
+           
+            $original_filename = $this->request->data['filename']['name'];
+             
+            $uuid_filename = $this->Upload->send($this->request->data['filename']);
+           
+            
+            $receipt = $this->Receipts->patchEntity($receipt, $this->request->data);           
+         
+            $receipt->filename = $uuid_filename;
+            $receipt->filename_original = $original_filename;
+            
+          
             if ($this->Receipts->save($receipt)) {
                 $this->Flash->success(__('The receipt has been saved.'));
                 return $this->redirect(['action' => 'index']);
@@ -103,6 +122,7 @@ class ReceiptsController extends AppController
                 $this->Flash->error(__('The receipt could not be saved. Please, try again.'));
             }
         }
+        
         $users = $this->Receipts->Users->find('list', ['limit' => 200]);
         $this->set(compact('receipt', 'users'));
         $this->set('_serialize', ['receipt']);
