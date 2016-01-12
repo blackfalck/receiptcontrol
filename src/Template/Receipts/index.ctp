@@ -9,11 +9,12 @@
 <div class="receipts index large-9 medium-8 columns content">
     <h3><?= __('Receipts') ?></h3>
 
+
+
     <table cellpadding="0" cellspacing="0">
         <thead>
             <tr>
-                <th><?= $this->Paginator->sort('id') ?></th>
-                <th><?= $this->Paginator->sort('user_id') ?></th>
+                
                 <th><?= $this->Paginator->sort('title') ?></th>
                 <th><?= $this->Paginator->sort('warranty') ?></th>
                 <th><?= $this->Paginator->sort('purchased') ?></th>
@@ -25,10 +26,10 @@
         <tbody>
             <?php foreach ($receipts as $receipt): ?>
             <tr>
-                <td><?= $this->Number->format($receipt->id) ?></td>
+                
                
                 <td><?= h($receipt->title) ?></td>
-                <td><?= $this->Number->format($receipt->warranty) ?></td>
+                <td><?= h($receipt->warranty) ?></td>
                 <td><?= h($receipt->purchased) ?></td>
                 <td><?= h($receipt->created) ?></td>
                 <td><?= h($receipt->modified) ?></td>

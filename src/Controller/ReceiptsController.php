@@ -3,6 +3,7 @@ namespace App\Controller;
 
 use App\Controller\AppController;
 use Cake\I18n\I18n;
+use Cake\Filesystem\File;
 /**
  * Receipts Controller
  *
@@ -12,6 +13,7 @@ class ReceiptsController extends AppController
 {
     public function initialize()
     {
+        //I18n::locale('nl_NL');
         parent::initialize();
         $this->loadComponent('Upload');
     }
@@ -22,9 +24,7 @@ class ReceiptsController extends AppController
      * @return void
      */
     public function index()
-    {
-        I18n::locale('nl');
-        
+    {       
         $this->paginate = [
             'contain' => ['Users']
         ];
@@ -72,6 +72,8 @@ class ReceiptsController extends AppController
      */
     public function add()
     {
+        //add picture
+        
         $receipt = $this->Receipts->newEntity();
         if ($this->request->is('post')) {
             $receipt = $this->Receipts->patchEntity($receipt, $this->request->data);
@@ -95,36 +97,53 @@ class ReceiptsController extends AppController
      * @throws \Cake\Network\Exception\NotFoundException When record not found.
      */
     public function edit($id = null)
-    {
-        //delete old image
+    {        
+        $receipt = $this->Receipts->get($id);
         
-        $receipt = $this->Receipts->get($id, [
-            'contain' => []
-        ]);
-        
-        if ($this->request->is(['patch', 'post', 'put'])) {
-           
-            $original_filename = $this->request->data['filename']['name'];
-             
-            $uuid_filename = $this->Upload->send($this->request->data['filename']);
-           
+        if ($this->request->is(['patch', 'post', 'put'])) 
+        {           
+            $receipt = $this->Receipts->patchEntity($receipt, $this->request->data);
             
-            $receipt = $this->Receipts->patchEntity($receipt, $this->request->data);           
-         
-            $receipt->filename = $uuid_filename;
-            $receipt->filename_original = $original_filename;
+            if(isset($this->request->data['filename']['name']) && !empty($this->request->data['filename']['name']))
+            {                
+                $original_filename = $this->request->data['filename']['name'];             
+                $uuid_filename = $this->Upload->send($this->request->data['filename']);  
+
+                if(!empty($receipt->getOriginal('filename')))
+                {                    
+                    $original_name = $receipt->getOriginal('filename');                     
+                }
+                
+                $receipt->filename = $uuid_filename;
+                $receipt->filename_original = $original_filename;  
+            }
+            else
+            {
+                $receipt->filename = $receipt->getOriginal('filename');
+            }     
             
-          
-            if ($this->Receipts->save($receipt)) {
-                $this->Flash->success(__('The receipt has been saved.'));
+            //if deleted is 1: empty filename + file_name original and delete image
+            if($this->request->data['deleted'] == "1")
+            {
+                $this->removeimage($receipt->filename);                
+                unset($receipt->filename, $receipt->filename_original);                
+            }
+           
+            if ($this->Receipts->save($receipt)) 
+            {                
+                if(!empty($original_name))
+                {                    
+                    $this->removeimage($original_name);                                    
+                }
+                 
+                $this->Flash->success(__('The receipt has been saved.'));  
                 return $this->redirect(['action' => 'index']);
             } else {
                 $this->Flash->error(__('The receipt could not be saved. Please, try again.'));
             }
-        }
+        }        
         
-        $users = $this->Receipts->Users->find('list', ['limit' => 200]);
-        $this->set(compact('receipt', 'users'));
+        $this->set(compact('receipt' ));
         $this->set('_serialize', ['receipt']);
     }
 
@@ -139,11 +158,24 @@ class ReceiptsController extends AppController
     {
         $this->request->allowMethod(['post', 'delete']);
         $receipt = $this->Receipts->get($id);
+        $filename = $receipt->filename;
+        
         if ($this->Receipts->delete($receipt)) {
+            $this->removeimage($filename);
             $this->Flash->success(__('The receipt has been deleted.'));
         } else {
             $this->Flash->error(__('The receipt could not be deleted. Please, try again.'));
         }
         return $this->redirect(['action' => 'index']);
+    }
+    
+    private function removeimage($image)
+    {
+        $todelete = WWW_ROOT.'img'.DS.'uploads'.$image;
+       
+        if(file_exists($todelete) == true)
+        {
+            unlink($todelete);
+        }
     }
 }

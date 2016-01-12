@@ -17,14 +17,25 @@
     <fieldset>
         <legend><?= __('Edit Receipt') ?></legend>
         <?php
-            echo $this->Form->input('user_id', ['options' => $users]);
+            echo $this->Form->hidden('id');
             echo $this->Form->input('title');
             echo $this->Form->input('description');
             echo $this->Form->file('filename');
-            echo $receipt->filename_original; 
+            echo $this->Form->button('delete' , ['type' => 'button', 'class' => 'deleteimage']);
+            echo $this->Form->hidden('deleted', ['value' => 0, 'class' => 'deleted']);
+            
+           
             echo $this->Html->image('uploads/'.$receipt->filename, ['alt' => 'CakePHP']);
             echo $this->Form->input('warranty');
-            echo $this->Form->input('purchased');
+            echo $this->Form->datetime('purchased',
+                [
+                   'hour' => [
+                        'class' => 'hidden',
+                    ],
+                    'minute' => [
+                        'class' => 'hidden',
+                    ],
+                ]);
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

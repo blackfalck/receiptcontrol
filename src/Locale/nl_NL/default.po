@@ -1,0 +1,8 @@
+msgid "Receipts"
+msgstr "Bonnen"
+
+msgid "New Receipt"
+msgstr "Nieuwe bon"
+
+msgid "Fuckers"
+msgstr "DIkzak"
