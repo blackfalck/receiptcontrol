@@ -4,7 +4,12 @@
         <li><?= $this->Html->link(__('New Receipt'), ['action' => 'add']) ?></li>
         <li><?= $this->Html->link(__('List Users'), ['controller' => 'Users', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('New User'), ['controller' => 'Users', 'action' => 'add']) ?></li>
+        
+        <li><?= $this->Html->link(__('English'), ['controller' => 'Locale', 'action' => 'change' , 'en_US']) ?></li>
+        <li><?= $this->Html->link(__('Nederlands'), ['controller' => 'Locale', 'action' => 'change' , 'nl_NL']) ?></li>
     </ul>
+    
+    
 </nav>
 <div class="receipts index large-9 medium-8 columns content">
     <h3><?= __('Receipts') ?></h3>

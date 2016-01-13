@@ -12,8 +12,7 @@ use Cake\Filesystem\File;
 class ReceiptsController extends AppController
 {
     public function initialize()
-    {
-        //I18n::locale('nl_NL');
+    {        
         parent::initialize();
         $this->loadComponent('Upload');
     }
