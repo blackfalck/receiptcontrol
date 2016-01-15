@@ -18,8 +18,8 @@
         <legend><?= __('Edit Receipt') ?></legend>
         <?php
             echo $this->Form->hidden('id');
-            echo $this->Form->input('title');
-            echo $this->Form->input('description');
+            echo $this->Form->input('title', array('type' => 'text'));
+            echo $this->Form->input('description', array('type' => 'text'));
             echo $this->Form->file('filename');
             echo $this->Form->button('delete' , ['type' => 'button', 'class' => 'deleteimage']);
             echo $this->Form->hidden('deleted', ['value' => 0, 'class' => 'deleted']);

@@ -12,10 +12,7 @@
 <div class="receipts view large-9 medium-8 columns content">
     <h3><?= h($receipt->title) ?></h3>
     <table class="vertical-table">
-        <tr>
-            <th><?= __('User') ?></th>
-            <td><?= $receipt->has('user') ? $this->Html->link($receipt->user->id, ['controller' => 'Users', 'action' => 'view', $receipt->user->id]) : '' ?></td>
-        </tr>
+        
         <tr>
             <th><?= __('Title') ?></th>
             <td><?= h($receipt->title) ?></td>

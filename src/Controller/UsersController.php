@@ -2,6 +2,8 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\Mailer\Email;
+use Cake\Utility\Text;
 
 /**
  * Users Controller
@@ -101,5 +103,61 @@ class UsersController extends AppController
             $this->Flash->error(__('The user could not be deleted. Please, try again.'));
         }
         return $this->redirect(['action' => 'index']);
+    }
+    
+    /**
+     * Forgot method
+     *
+     * @param string|null $id User id.
+     * @return \Cake\Network\Response|null Redirects to index.
+     * @throws \Cake\Network\Exception\NotFoundException When record not found.
+     */
+    public function forgot($id = null)
+    {
+        if ($this->request->is(['patch', 'post', 'put'])) {
+           
+            $user = $this->Users->find('all')
+                    ->where(['email' => $this->request->data['email']])
+                    ->first();
+            
+            if(!isset($user))
+            {
+                $this->Flash->error(__('I am sorry something went wrong'));
+                return $this->redirect(['action' => 'forgot']);
+            }
+            
+            $newpassword['password'] = substr(sha1(Text::uuid()), 0, 12);
+            
+            $user = $this->Users->patchEntity($user, $newpassword);
+            
+            if ($this->Users->save($user)) {
+                
+                 //send pw with email
+                if( mail($user['email'], 'Feedback', 'This is so useful, thanks!  '.$newpassword['password']) )
+                {
+                    $this->Flash->success(__('New Password requested'));
+                    return $this->redirect(['action' => 'forgot']);
+                }
+            } else {
+                $this->Flash->error(__('I am sorry something went wrong'));
+            }
+            
+            var_dump($user);
+            
+            //var_dump($user);
+            
+            exit;
+        }
+    
+       
+        /*
+        exit;
+        
+        
+       
+        
+       
+        echo "send";
+        exit;*/
     }
 }
