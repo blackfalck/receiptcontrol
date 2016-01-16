@@ -16,6 +16,11 @@ class ReceiptsController extends AppController
         parent::initialize();
         $this->loadComponent('Upload');
     }
+    
+    public function home(){
+        $this->set('home', true); 
+        $this->set('_serialize', ['home']);
+    }
 
     /**
      * Index method
@@ -28,20 +33,22 @@ class ReceiptsController extends AppController
         {            
             // The 'pass' key is provided by CakePHP and contains all
             // the passed URL path segments in the request.
-            $tags = $this->request->params['pass'];
+            $tags = $this->request->params['pass'][0];
 
             // Use the BookmarksTable to find tagged bookmarks.
             $this->Receipts = $this->Receipts->find('all', [
-                'conditions' => ['Receipts.title like' => $tags[0]]
+                'conditions' => ['Receipts.title like' => '%'.$tags.'%']
             ]);
-
-            // Pass variables into the view template context.
+            
+            foreach($this->Receipts as $t){
+                var_dump($t);
+            }
             $this->set(['tags' => $tags]);
         }        
    
-        
         $this->set('receipts', $this->Receipts->find('all')); 
         $this->set('_serialize', ['receipts']);
+        
     }
 
     /**
