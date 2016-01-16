@@ -18,6 +18,7 @@ class ReceiptsController extends AppController
     }
     
     public function home(){
+        
         $this->set('home', true); 
         $this->set('_serialize', ['home']);
     }
@@ -29,6 +30,8 @@ class ReceiptsController extends AppController
      */
     public function index()
     {       
+        
+        var_Dump($this->Auth->user('id'));
         if(!empty($this->request->params['pass']))
         {            
             // The 'pass' key is provided by CakePHP and contains all

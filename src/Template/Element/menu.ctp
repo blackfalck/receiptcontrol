@@ -1,10 +1,13 @@
 <div class="navbar-collapse collapse">
     <ul class="nav navbar-nav navbar-right">            
       <li>
-        <a href="index.html#screenshots">My account</a>
+        <?= $this->Html->link(__('My account'), ['controller' => 'Users', 'action' => 'index']) ?>        
       </li>
       <li>
         <?= $this->Html->link(__('Receipts'), ['controller' => 'Receipts', 'action' => 'index']) ?>        
+      </li>
+      <li>
+        <?= $this->Html->link(__('Faq'), ['controller' => 'Pages', 'action' => 'faq']) ?>        
       </li>
       <li class="dropdown">
         <a href="#" data-toggle="dropdown">

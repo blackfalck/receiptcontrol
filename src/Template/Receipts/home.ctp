@@ -1,8 +1,7 @@
 <!-- Pre-loader -->
-  <div class="preloader">
-     <div class="status">&nbsp;</div>
-  </div>
-
+<div class="preloader">
+   <div class="status">&nbsp;</div>
+</div>
 
   <!-- HOME -->
   <section class="home bg-dark">
@@ -33,33 +32,78 @@
       <div class="row">
         <div class="col-sm-6 text-left">
           <div class="home-wrapper">
-            <h1 class="animated fadeInDown wow home-title" data-wow-delay=".1s">We Are Creative</h1>
-            <h4 class="animated fadeInDown wow" data-wow-delay=".2s">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed feugiat arcu ut orci porta, eget porttitor felis suscipit.<br/> Sed a nisl ullamcorper, tempus augue at, rutrum lacus. Duis et turpis eros.</h4>
-            <a href="" class="btn btn-custom btn-rnd animated fadeInDown wow" data-wow-delay=".4s">Learn more</a>
+            <h1 class="animated fadeInDown wow home-title" data-wow-delay=".1s">Receipt Control</h1>
+            <h4 class="animated fadeInDown wow" data-wow-delay=".2s">
+                Don't you just hate it when something stops working and the store asks for the receipt, but you've lost it. 
+                Have full control over your receipts!<br>
+                And yep, it is free.
+            </h4>            
+                <?= $this->Html->link(__('Learn more'), 
+                      ['controller' => 'Pages', 'action' => 'faq'],
+                      ['class' => 'btn btn-custom btn-rnd animated fadeInDown wow']) 
+                ?>   
+             <?= $this->Html->link(__('Login'), 
+                      ['controller' => 'Users', 'action' => 'login'],
+                      ['class' => 'btn btn-custom btn-rnd animated fadeInDown wow']) 
+                ?>   
             <div class="clearfix"></div>
-            <a href="http://vimeo.com/99025203" class="video-btn btn popup-video animated fadeInDown wow" data-wow-delay=".6s"><i class="ion-play"></i>Watch Video</a>
           </div>
         </div>
         <div class="col-sm-4 col-sm-offset-2">
           <div class="home-wrapper">
-              <form role="form" id="register_form" class="intro-form">
-                <h3 class="text-center"> Register for free </h3>
-                <div class="form-group">
-                  <input type="text" class="form-control" placeholder="Full name" required="required">
-                </div>
-                <div class="form-group">
-                  <input type="text" class="form-control" placeholder="Email Address" required="required">
-                </div>
-                <div class="form-group">
-                  <input type="text" class="form-control" placeholder="User name" required="required">
-                </div>
-                <div class="form-group">
-                  <input type="text" class="form-control" placeholder="Password" required="required">
-                </div>
-                <div class="form-group text-center">
-                  <button type="submit" class="btn btn-custom">Start Now</button>
-                </div>
-              </form>
+              
+              <?= $this->Form->create(null, [
+                  'url' => [
+                      'controller' => 'Users',
+                      'action' => 'register'
+                      ],
+                  'class' => 'intro-form',
+                  'id' => 'register_form',
+                  'role'=>'form'
+              ]) ?>
+              
+              <h3 class="text-center"> Register for free </h3>
+              <div class="form-group">
+                <?= $this->Form->input('fullname', [
+                            'type' => 'text',
+                            'class' => 'form-control',
+                            'placeholder' => 'Full name',
+                            'required' => 'required'
+                            ]); 
+                ?> 
+                  </div>
+              <div class="form-group">
+              <?= $this->Form->input('email', 
+                      [
+                          'type' => 'text',
+                          'class' => 'form-control',
+                          'placeholder' => 'Email',
+                          'required' => 'required'
+                          
+                          ]); 
+                ?>
+                  </div>
+              <div class="form-group">
+              <?= $this->Form->input('password', 
+                      [
+                          'type' => 'text',
+                          'class' => 'form-control',
+                          'placeholder' => 'password',
+                          'required' => 'required'
+                          
+                          ]); 
+                ?>
+              </div>
+               <div class="form-group text-center">
+               <?= $this->Form->button('Sign up',[
+                   'class'=> 'btn btn-custom'
+               ]); ?> 
+                   </div>
+              <?= $this->Form->end() ?>
+               
+              
+               
+               
             </div>
           </div>
       </div>
