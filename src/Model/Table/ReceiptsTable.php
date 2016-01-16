@@ -47,11 +47,12 @@ class ReceiptsTable extends Table
     public function validationDefault(Validator $validator)
     {
         $validator
-            ->add('id', 'valid', ['rule' => 'numeric'])
+            ->add('id', 'valid', ['rule' => 'uuid'])
             ->allowEmpty('id', 'create');
 
-        $validator
-            ->allowEmpty('title');
+        $validator            
+            ->requirePresence('title', 'create')
+            ->notEmpty('title');
 
         $validator
             ->allowEmpty('description');

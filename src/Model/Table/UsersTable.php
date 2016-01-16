@@ -45,12 +45,16 @@ class UsersTable extends Table
     public function validationDefault(Validator $validator)
     {
         $validator
-            ->add('id', 'valid', ['rule' => 'numeric'])
+            ->add('id', 'valid', ['rule' => 'uuid'])
             ->allowEmpty('id', 'create');
 
         $validator
             ->add('email', 'valid', ['rule' => 'email'])
             ->requirePresence('email', 'create')
+            ->notEmpty('email');
+        
+        $validator            
+            ->requirePresence('fullname', 'create')
             ->notEmpty('email');
 
         $validator
