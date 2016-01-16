@@ -14,6 +14,13 @@ use Cake\Validation\Validation;
 class UsersController extends AppController
 {
 
+    public function initialize()
+    {        
+        parent::initialize();
+        $this->Auth->allow(['login', 'forgot','register']);
+    }
+    
+    
     /**
      * Index method
      *
@@ -22,7 +29,7 @@ class UsersController extends AppController
     public function index()
     {
         $this->set('users', $this->paginate($this->Users));
-        $this->set('_serialize', ['users']);
+        $this->set('_serialize', ['users']);      
     }
 
     /**
@@ -86,6 +93,8 @@ class UsersController extends AppController
                 $this->Flash->error(__('The user could not be saved. Please, try again.'));
             }
         }
+        
+        
         $this->set(compact('user'));
         $this->set('_serialize', ['user']);
     }

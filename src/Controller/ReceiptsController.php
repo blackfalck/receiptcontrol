@@ -15,6 +15,7 @@ class ReceiptsController extends AppController
     {        
         parent::initialize();
         $this->loadComponent('Upload');
+        $this->Auth->allow('home');
     }
     
     public function home(){
