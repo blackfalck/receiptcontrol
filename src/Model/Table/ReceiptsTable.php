@@ -50,7 +50,7 @@ class ReceiptsTable extends Table
             ->add('id', 'valid', ['rule' => 'uuid'])
             ->allowEmpty('id', 'create');
 
-        $validator            
+        $validator
             ->requirePresence('title', 'create')
             ->notEmpty('title');
 
@@ -86,6 +86,4 @@ class ReceiptsTable extends Table
         $rules->add($rules->existsIn(['user_id'], 'Users'));
         return $rules;
     }
-    
-   
 }

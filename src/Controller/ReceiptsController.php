@@ -4,6 +4,7 @@ namespace App\Controller;
 use App\Controller\AppController;
 use Cake\I18n\I18n;
 use Cake\Filesystem\File;
+
 /**
  * Receipts Controller
  *
@@ -12,15 +13,16 @@ use Cake\Filesystem\File;
 class ReceiptsController extends AppController
 {
     public function initialize()
-    {        
+    {
         parent::initialize();
         $this->loadComponent('Upload');
         $this->Auth->allow('home');
     }
     
-    public function home(){
+    public function home()
+    {
         
-        $this->set('page', 'home'); 
+        $this->set('page', 'home');
         $this->set('_serialize', ['home']);
     }
 
@@ -30,12 +32,11 @@ class ReceiptsController extends AppController
      * @return void
      */
     public function index()
-    {       
+    {
         
         //var_Dump($this->Auth->user('id'));
-        if(!empty($this->request->params['pass']))
-        {            
-            // The 'pass' key is provided by CakePHP and contains all
+        if (!empty($this->request->params['pass'])) {
+        // The 'pass' key is provided by CakePHP and contains all
             // the passed URL path segments in the request.
             $tags = $this->request->params['pass'][0];
 
@@ -44,13 +45,13 @@ class ReceiptsController extends AppController
                 'conditions' => ['Receipts.title like' => '%'.$tags.'%']
             ]);
             
-            foreach($this->Receipts as $t){
+            foreach ($this->Receipts as $t) {
                 var_dump($t);
             }
             $this->set(['tags' => $tags]);
-        }        
-   $this->set('title', 'Receipts'); 
-        $this->set('receipts', $this->Receipts->find('all')); 
+        }
+        $this->set('title', 'Receipts');
+        $this->set('receipts', $this->Receipts->find('all'));
         $this->set('_serialize', ['receipts']);
         
     }
@@ -75,15 +76,14 @@ class ReceiptsController extends AppController
      * @return void Redirects on successful add, renders view otherwise.
      */
     public function add()
-    {        
+    {
         $receipt = $this->Receipts->newEntity();
-        if ($this->request->is('post')) {          
-            
-            $this->saveWithImage($this->request->data, $receipt);          
+        if ($this->request->is('post')) {
+            $this->saveWithImage($this->request->data, $receipt);
         }
      
         $this->set(compact('receipt'));
-        $this->set('_serialize', ['receipt']);        
+        $this->set('_serialize', ['receipt']);
     }
 
     /**
@@ -94,15 +94,14 @@ class ReceiptsController extends AppController
      * @throws \Cake\Network\Exception\NotFoundException When record not found.
      */
     public function edit($id = null)
-    {        
+    {
         $receipt = $this->Receipts->get($id);
         
-        if ($this->request->is(['patch', 'post', 'put'])) 
-        {           
-            $this->saveWithImage($this->request->data, $receipt);           
-        }        
+        if ($this->request->is(['patch', 'post', 'put'])) {
+            $this->saveWithImage($this->request->data, $receipt);
+        }
         
-        $this->set(compact('receipt' ));
+        $this->set(compact('receipt'));
         $this->set('_serialize', ['receipt']);
     }
 
@@ -132,52 +131,44 @@ class ReceiptsController extends AppController
     {
         $todelete = WWW_ROOT.'img'.DS.'uploads'.$image;
        
-        if(file_exists($todelete) == true)
-        {
+        if (file_exists($todelete) == true) {
             unlink($todelete);
         }
     }
     
     //save image function
     private function saveWithImage($data, $receipt = null)
-    {       
+    {
         $receipt = $this->Receipts->patchEntity($receipt, $this->request->data);
             
-        if(isset($this->request->data['filename']['name']) && !empty($this->request->data['filename']['name']))
-        {                
-            $original_filename = $this->request->data['filename']['name'];             
-            $uuid_filename = $this->Upload->send($this->request->data['filename']);  
+        if (isset($this->request->data['filename']['name']) && !empty($this->request->data['filename']['name'])) {
+            $original_filename = $this->request->data['filename']['name'];
+            $uuid_filename = $this->Upload->send($this->request->data['filename']);
 
-            if(!empty($receipt->getOriginal('filename')))
-            {                    
-                $original_name = $receipt->getOriginal('filename');                     
+            if (!empty($receipt->getOriginal('filename'))) {
+                $original_name = $receipt->getOriginal('filename');
             }
 
             $receipt->filename = $uuid_filename;
-            $receipt->filename_original = $original_filename;  
-        }
-        else
-        {
+            $receipt->filename_original = $original_filename;
+        } else {
             $receipt->filename = $receipt->getOriginal('filename');
-        }     
+        }
 
         //if deleted is 1: empty filename + file_name original and delete image
-        if(isset($this->request->data['deleted']) && $this->request->data['deleted'] == "1")
-        {
-            $this->removeimage($receipt->filename);                
-            unset($receipt->filename, $receipt->filename_original);                
+        if (isset($this->request->data['deleted']) && $this->request->data['deleted'] == "1") {
+            $this->removeimage($receipt->filename);
+            unset($receipt->filename, $receipt->filename_original);
         }
         $receipt->user_id = '29cdd135-fc9f-43ef-811c-315333e7abb5';
         
 
-        if ($this->Receipts->save($receipt)) 
-        {                
-            if(!empty($original_name))
-            {                    
-                $this->removeimage($original_name);                                    
+        if ($this->Receipts->save($receipt)) {
+            if (!empty($original_name)) {
+                $this->removeimage($original_name);
             }
 
-            $this->Flash->success(__('The receipt has been saved.'));  
+            $this->Flash->success(__('The receipt has been saved.'));
             return $this->redirect(['action' => 'index']);
         } else {
             $this->Flash->error(__('The receipt could not be saved. Please, try again.'));
