@@ -13,22 +13,30 @@
                 <tbody>
                     <?php foreach ($receipts as $receipt): ?>
                     
-                    <tr class="clickabletr" type="receipts" action="view" id="<?=$receipt->id?>">
+                    <tr class="clickabletr" type="receipts" action="edit" id="<?=$receipt->id?>">
                         <td><?= h($receipt->title) ?></td>
-                        <td><?= h($receipt->warranty) ?></td>
+                        <td><?= h($receipt->warranty)?> 
+                            <?php
+                            if($receipt->warranty == 1){
+                               echo __('Month');
+                            }
+                            else{
+                                echo __('Months');
+                            }                        
+                         ?>
+                        </td>
                         <td><?= h($receipt->purchased) ?></td>
 
-                        <td class="actions">                            
-                            <?= $this->Html->link('<span class="glyphicon glyphicon-eye-open"></span>', 
-                                    ['action' => 'view', $receipt->id],
-                                    false) ?>
-                            
-                            <?= $this->Html->link('<span class="glyphicon glyphicon-pencil"></span>', 
-                                    ['action' => 'edit', $receipt->id],
-                                    false) ?>
-                            
-                            <?= $this->Form->postLink('<span class="glyphicon glyphicon-trash"></span>', [
-                                'action' => 'delete', $receipt->id], ['confirm' => __('Are you sure you want to delete # {0}?', $receipt->id)]) ?>
+                        <td class="actions">                              
+                            <a href="/receipts/view/<?=$receipt->id?>">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                            </a>
+                            <a href="/receipts/edit/<?=$receipt->id?>">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                            </a>
+                            <a href="/receipts/delete/5965fbbb-3ad0-4664-9a84-d346225ce286" onclick="return confirm('Are you sure?')">
+                                <span class="glyphicon glyphicon-trash"></span>
+                            </a>
                         </td>
                     </tr>
                     <?php endforeach; ?>
