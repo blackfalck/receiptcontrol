@@ -6,6 +6,21 @@
    File Description:Main JS file of the template
 */
 
+/*
+ * Additional Authot: Mitchell Izelaar 
+ */
+$(function()
+{
+    $('tr.clickabletr').click(function()
+    {
+        var url ='/'+$(this).attr('type')+'/'+$(this).attr('action')+'/'+$(this).attr('id');
+        document.location.href = url;
+      
+    });
+});
+
+
+
 /* ==============================================
 Smooth Scroll To Anchor
 =============================================== */

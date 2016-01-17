@@ -646,3 +646,6 @@ table.form-group{
     width:90%;
     margin:auto;
 }
+tr.clickabletr{
+    cursor:pointer;
+}

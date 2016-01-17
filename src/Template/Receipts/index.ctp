@@ -12,15 +12,23 @@
                 </thead>
                 <tbody>
                     <?php foreach ($receipts as $receipt): ?>
-                    <tr>
+                    
+                    <tr class="clickabletr" type="receipts" action="view" id="<?=$receipt->id?>">
                         <td><?= h($receipt->title) ?></td>
                         <td><?= h($receipt->warranty) ?></td>
                         <td><?= h($receipt->purchased) ?></td>
 
-                        <td class="actions">
-                            <?= $this->Html->link(__('View'), ['action' => 'view', $receipt->id]) ?>
-                            <?= $this->Html->link(__('Edit'), ['action' => 'edit', $receipt->id]) ?>
-                            <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $receipt->id], ['confirm' => __('Are you sure you want to delete # {0}?', $receipt->id)]) ?>
+                        <td class="actions">                            
+                            <?= $this->Html->link('<span class="glyphicon glyphicon-eye-open"></span>', 
+                                    ['action' => 'view', $receipt->id],
+                                    false) ?>
+                            
+                            <?= $this->Html->link('<span class="glyphicon glyphicon-pencil"></span>', 
+                                    ['action' => 'edit', $receipt->id],
+                                    false) ?>
+                            
+                            <?= $this->Form->postLink('<span class="glyphicon glyphicon-trash"></span>', [
+                                'action' => 'delete', $receipt->id], ['confirm' => __('Are you sure you want to delete # {0}?', $receipt->id)]) ?>
                         </td>
                     </tr>
                     <?php endforeach; ?>
