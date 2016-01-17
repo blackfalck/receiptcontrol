@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-sm-12 text-center">
-      <h1 class="title zoomIn animated wow animated"><?= __('Receipts') ?></h1>
+      <h1 class="title zoomIn animated wow animated"><?= __($title) ?></h1>
     </div> 
  </div>
 

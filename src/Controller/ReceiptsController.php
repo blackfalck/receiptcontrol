@@ -15,10 +15,12 @@ class ReceiptsController extends AppController
     {        
         parent::initialize();
         $this->loadComponent('Upload');
+        $this->Auth->allow('home');
     }
     
     public function home(){
-        $this->set('home', true); 
+        
+        $this->set('page', 'home'); 
         $this->set('_serialize', ['home']);
     }
 
@@ -29,6 +31,8 @@ class ReceiptsController extends AppController
      */
     public function index()
     {       
+        
+        //var_Dump($this->Auth->user('id'));
         if(!empty($this->request->params['pass']))
         {            
             // The 'pass' key is provided by CakePHP and contains all
@@ -45,7 +49,7 @@ class ReceiptsController extends AppController
             }
             $this->set(['tags' => $tags]);
         }        
-   
+   $this->set('title', 'Receipts'); 
         $this->set('receipts', $this->Receipts->find('all')); 
         $this->set('_serialize', ['receipts']);
         

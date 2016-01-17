@@ -33,8 +33,13 @@
   
 <body>
     
-    <?php if(isset($home) && $home == true){
+    <?php 
+    if(isset($page) && $page == 'home'){
        echo  $this->element('../Receipts/home');
+    }
+    elseif(isset($page) && $page == 'login')
+    {
+      echo  $this->element('../Users/login');  
     }
     else
     {    

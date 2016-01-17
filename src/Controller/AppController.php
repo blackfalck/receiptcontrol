@@ -44,6 +44,16 @@ class AppController extends Controller
 
         $this->loadComponent('RequestHandler');
         $this->loadComponent('Flash');
+        $this->loadComponent('Auth', [
+            'loginRedirect' => [
+                'controller' => 'Receipts',
+                'action' => 'index'
+            ],
+            'logoutRedirect' => [
+                'controller' => 'Receipts',
+                'action' => 'home'
+            ]
+        ]);
         
         $locale = (!empty($this->request->session()->read('locale')) ? $this->request->session()->read('locale') : 'en_US'); 
         I18n::locale($locale);

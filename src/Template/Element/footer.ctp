@@ -1,17 +1,4 @@
-<!-- FOOTER CTA -->
-  <section class="section bg-dark footer-cta">
-    <div class="container">
-      <div class="row text-center">
-         <div class="col-sm-10 col-sm-offset-1">
-          <h4 class="text-uppercase animated fadeInDown wow" data-wow-delay=".1s">We are Here to Help You</h4>
-          <h1 class="animated fadeInDown wow" data-wow-delay=".3s">Best Solutions for Your Business</h1>
-          <a href="" class="btn btn-custom btn-rnd animated fadeInDown wow" data-wow-delay=".5s">Get Started Now</a>
-         </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- END FOOTER CTA -->
 
 
   <!-- FOOTER -->
