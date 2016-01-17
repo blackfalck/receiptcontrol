@@ -27,8 +27,8 @@
       <div class="row">
         <div class="col-sm-12 text-center">
           <div class="home-wrapper low">
-            <h1 class="animated fadeInDown wow" data-wow-delay=".1s">Contact Us</h1>
-            <h4 class="page-sub-title animated fadeInDown wow" data-wow-delay=".3s">Simply dummy text of the printing and type</h4>
+            <h1 class="animated fadeInDown wow" data-wow-delay=".1s"><?= __($title) ?></h1>
+            <h4 class="page-sub-title animated fadeInDown wow" data-wow-delay=".3s"><?= __($subtitle) ?></h4>
           </div>
         </div>
       </div>

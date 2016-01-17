@@ -16,16 +16,8 @@ class ReceiptsController extends AppController
     {
         parent::initialize();
         $this->loadComponent('Upload');
-        $this->Auth->allow('home');
     }
     
-    public function home()
-    {
-        
-        $this->set('page', 'home');
-        $this->set('_serialize', ['home']);
-    }
-
     /**
      * Index method
      *
@@ -82,6 +74,7 @@ class ReceiptsController extends AppController
             $this->saveWithImage($this->request->data, $receipt);
         }
      
+        $this->set('title', 'Add receipt');
         $this->set(compact('receipt'));
         $this->set('_serialize', ['receipt']);
     }
@@ -101,6 +94,7 @@ class ReceiptsController extends AppController
             $this->saveWithImage($this->request->data, $receipt);
         }
         
+        $this->set('title', 'Edit reciept');
         $this->set(compact('receipt'));
         $this->set('_serialize', ['receipt']);
     }

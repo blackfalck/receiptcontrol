@@ -13,7 +13,7 @@
               <i class="ion-navicon"></i>
           </button>
           <!-- LOGO -->
-          <a class="navbar-brand logo" href="index.html">
+          <a class="navbar-brand logo" href="/">
             <i class="ion-social-buffer"></i>
               <span>Lugada</span>
           </a>

@@ -1,17 +1,51 @@
-
-<div class="users form large-9 medium-8 columns content">
-    <?= $this->Form->create($user) ?>
-    <fieldset>
-        <legend><?= __('Edit User') ?></legend>
-        <?php
-            echo $this->Form->input('fullname', array('type' => 'text'));
-            echo $this->Form->input('email');
-            echo $this->Form->input('password');
-        ?>
-    </fieldset>
-    <?= $this->Form->button(__('Submit')) ?>
-    <?= $this->Form->end() ?>
+<div class="row col-sm-12">  
+    <div class="form-group col-sm-12">  
+        <?= $this->Html->link(__('Logout'), 
+            ['controller' => 'Users', 'action' => 'logout'],
+            ['class' => 'btn btn-custom']) 
+        ?>   
+  </div>
 </div>
 
+<?= $this->Form->create($user) ?>
+<div class="row col-sm-12">            
+    <div class="form-group col-sm-4">      
+      <?=$this->Form->input('fullname', [
+          'type' => 'text',
+          'class' => 'form-control']
+              )?>
+      <div class="error" id="err-name" style="display: none;">Please enter name</div>
+    </div> 
+    
+</div>
 
-<?= $this->Html->link(__('Logout'), ['controller' => 'Users', 'action' => 'logout']) ?>       
+<div class="row col-sm-12">            
+    <div class="form-group col-sm-4">      
+      <?=$this->Form->input('email', [
+          'class' => 'form-control']
+              )?>
+      <div class="error" id="err-name" style="display: none;">Please enter name</div>
+    </div> 
+</div>
+
+<div class="row col-sm-12">            
+    <div class="form-group col-sm-4">      
+      <?=$this->Form->input('password', [
+          'class' => 'form-control',
+          'value' => "",
+          'required' => false
+          ]
+              )?>
+      <div class="error" id="err-name" style="display: none;">Please enter name</div>
+    </div> 
+</div>
+
+<div class="row col-sm-12"> 
+    <div class="form-group col-sm-4"> 
+        <?= $this->Form->button('Save',[
+            'class'=> 'btn btn-custom'
+        ]); ?> 
+    </div>
+</div>
+
+<?= $this->Form->end() ?>
