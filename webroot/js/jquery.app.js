@@ -6,6 +6,9 @@
    File Description:Main JS file of the template
 */
 
+
+
+
 /* ==============================================
 Smooth Scroll To Anchor
 =============================================== */

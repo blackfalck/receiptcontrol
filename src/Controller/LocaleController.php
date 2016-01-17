@@ -4,6 +4,7 @@ namespace App\Controller;
 use App\Controller\AppController;
 use Cake\I18n\I18n;
 use Cake\Filesystem\File;
+
 /**
  * Receipts Controller
  *
@@ -12,7 +13,7 @@ use Cake\Filesystem\File;
 class LocaleController extends AppController
 {
     public function initialize()
-    {        
+    {
         parent::initialize();
     }
 
@@ -22,16 +23,15 @@ class LocaleController extends AppController
      * @return void
      */
     public function change($locale = null)
-    {        
-        if($locale == null)
-        {
+    {
+        if ($locale == null) {
             $locale = 'en_US';
         }
         
         I18n::locale($locale);
         $session = $this->request->session();
-        $session->write('locale',$locale);
+        $session->write('locale', $locale);
         
-        $this->redirect($this->referer());        
+        $this->redirect($this->referer());
     }
 }

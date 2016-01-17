@@ -69,6 +69,8 @@
    
     <!--common script for all pages-->
     <?= $this->Html->script('jquery.app') ?>
+    
+    <?= $this->Html->script('main') ?>
   
 </body>
 </html>

@@ -56,10 +56,13 @@ Router::scope('/', function ($routes) {
      */
     $routes->connect('/pages/*', ['controller' => 'Pages', 'action' => 'display']);
     
-     $routes->connect('/receipts/search/:query', ['controller' => 'Receipts', 'action' => 'index'],
-             [
+     $routes->connect(
+         '/receipts/search/:query',
+         ['controller' => 'Receipts', 'action' => 'index'],
+         [
                  'pass' => ['query']
-             ]);
+             ]
+     );
 
     /**
      * Connect catchall routes for all controllers.
@@ -77,7 +80,7 @@ Router::scope('/', function ($routes) {
      * You can remove these routes once you've connected the
      * routes you want in your application.
      */
-    $routes->fallbacks('DashedRoute');
+             $routes->fallbacks('DashedRoute');
 });
 
 /**
