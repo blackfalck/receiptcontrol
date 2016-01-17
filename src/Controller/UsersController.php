@@ -28,8 +28,21 @@ class UsersController extends AppController
      */
     public function index()
     {
-        $this->set('users', $this->paginate($this->Users));
-        $this->set('_serialize', ['users']);      
+        $id = $this->Auth->user('id');
+        $user = $this->Users->get($id, [
+            'contain' => []
+        ]);
+        if ($this->request->is(['patch', 'post', 'put'])) {
+            $user = $this->Users->patchEntity($user, $this->request->data);
+            if ($this->Users->save($user)) {
+                $this->Flash->success(__('The user has been saved.'));
+                return $this->redirect(['action' => 'index']);
+            } else {
+                $this->Flash->error(__('The user could not be saved. Please, try again.'));
+            }
+        }
+        $this->set(compact('user'));
+        $this->set('_serialize', ['user']);     
     }
 
     /**
@@ -46,6 +59,11 @@ class UsersController extends AppController
         ]);
         $this->set('user', $user);
         $this->set('_serialize', ['user']);
+    }
+    
+    public function logout()
+    {
+        return $this->redirect($this->Auth->logout());
     }
     
     public function login()
@@ -72,6 +90,7 @@ class UsersController extends AppController
         
         $user = $this->Users->newEntity();
         
+        $this->set('page', 'login');
         $this->set(compact('user'));
         $this->set('_serialize', ['user']);
     }

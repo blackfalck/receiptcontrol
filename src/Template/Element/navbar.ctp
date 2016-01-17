@@ -23,10 +23,10 @@
     </div>
     <!-- End navbar -->
 
-    <div class="container">
+    <div class="container low">
       <div class="row">
         <div class="col-sm-12 text-center">
-          <div class="home-wrapper">
+          <div class="home-wrapper low">
             <h1 class="animated fadeInDown wow" data-wow-delay=".1s">Contact Us</h1>
             <h4 class="page-sub-title animated fadeInDown wow" data-wow-delay=".3s">Simply dummy text of the printing and type</h4>
           </div>

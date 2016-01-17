@@ -82,6 +82,7 @@ textarea {
   background: -ms-linear-gradient(#444F5C, #334159);
   background: -o-linear-gradient(#444F5C, #334159);
   background: linear-gradient(#444F5C, #334159);
+  height: 35%;
 }
 .page-sub-title {
   margin: 10px 0px !important;
@@ -634,4 +635,10 @@ textarea {
   .feature-detail {
     padding: 0px 0px 50px 30px !important;
   }
+}
+.container.low{
+    height: 150px;
+}
+.home-wrapper.low{
+    padding:0;
 }
