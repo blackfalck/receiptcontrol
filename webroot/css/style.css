@@ -642,3 +642,7 @@ textarea {
 .home-wrapper.low{
     padding:0;
 }
+table.form-group{
+    width:90%;
+    margin:auto;
+}

@@ -81,7 +81,7 @@ class ReceiptsController extends AppController
             
             $this->saveWithImage($this->request->data, $receipt);          
         }
-        
+     
         $this->set(compact('receipt'));
         $this->set('_serialize', ['receipt']);        
     }
@@ -167,7 +167,7 @@ class ReceiptsController extends AppController
             $this->removeimage($receipt->filename);                
             unset($receipt->filename, $receipt->filename_original);                
         }
-        $receipt->user_id = 'e7e48dab-f69a-4539-abba-1fae98251b53';
+        $receipt->user_id = '29cdd135-fc9f-43ef-811c-315333e7abb5';
         
 
         if ($this->Receipts->save($receipt)) 
