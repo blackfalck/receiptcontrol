@@ -15,7 +15,7 @@ class UsersController extends AppController
 {
 
     public function initialize()
-    {        
+    {
         parent::initialize();
         $this->Auth->allow(['login', 'forgot','register']);
     }
@@ -42,7 +42,7 @@ class UsersController extends AppController
             }
         }
         $this->set(compact('user'));
-        $this->set('_serialize', ['user']);     
+        $this->set('_serialize', ['user']);
     }
 
     /**
@@ -67,23 +67,23 @@ class UsersController extends AppController
     }
     
     public function login()
-    {      
-        if ($this->request->is('post')) {            
+    {
+        if ($this->request->is('post')) {
             if (Validation::email($this->request->data['email'])) {
                     $this->Auth->config('authenticate', [
                         'Form' => [
                             'fields' => ['username' => 'email']
                         ]
                     ]);
-                    $this->Auth->constructAuthenticate();                    
-                }
+                    $this->Auth->constructAuthenticate();
+            }
 
                 $user = $this->Auth->identify();
 
-                if ($user) {
-                    $this->Auth->setUser($user);
-                    return $this->redirect($this->Auth->redirectUrl());
-                }
+            if ($user) {
+                $this->Auth->setUser($user);
+                return $this->redirect($this->Auth->redirectUrl());
+            }
 
                 $this->Flash->error(__('Invalid email or password, try again'));
         }
@@ -172,13 +172,11 @@ class UsersController extends AppController
     public function forgot($id = null)
     {
         if ($this->request->is(['patch', 'post', 'put'])) {
-           
             $user = $this->Users->find('all')
                     ->where(['email' => $this->request->data['email']])
                     ->first();
             
-            if(!isset($user))
-            {
+            if (!isset($user)) {
                 $this->Flash->error(__('I am sorry something went wrong'));
                 return $this->redirect(['action' => 'forgot']);
             }
@@ -188,10 +186,8 @@ class UsersController extends AppController
             $user = $this->Users->patchEntity($user, $newpassword);
             
             if ($this->Users->save($user)) {
-                
                  //send pw with email
-                if( mail($user['email'], 'Feedback', 'This is so useful, thanks!  '.$newpassword['password']) )
-                {
+                if (mail($user['email'], 'Feedback', 'This is so useful, thanks!  '.$newpassword['password'])) {
                     $this->Flash->success(__('New Password requested'));
                     return $this->redirect(['action' => 'forgot']);
                 }
