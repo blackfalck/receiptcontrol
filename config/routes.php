@@ -49,12 +49,12 @@ Router::scope('/', function ($routes) {
      * its action called 'display', and we pass a param to select the view file
      * to use (in this case, src/Template/Pages/home.ctp)...
      */
-    $routes->connect('/', ['controller' => 'Receipts', 'action' => 'home']);
+    $routes->connect('/', ['controller' => 'Pages', 'action' => 'home']);
 
     /**
      * ...and connect the rest of 'Pages' controller's URLs.
      */
-    $routes->connect('/pages/*', ['controller' => 'Pages', 'action' => 'display']);
+   // $routes->connect('/pages/*', ['controller' => 'Pages', 'action' => 'display']);
     
      $routes->connect(
          '/receipts/search/:query',

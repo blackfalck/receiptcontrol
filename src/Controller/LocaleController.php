@@ -15,6 +15,7 @@ class LocaleController extends AppController
     public function initialize()
     {
         parent::initialize();
+        $this->Auth->allow(['change']);
     }
 
     /**
