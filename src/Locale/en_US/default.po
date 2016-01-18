@@ -1,2 +1,6 @@
-msgid "Receipts"
-msgstr "Receipts"
+msgid "my_account"
+msgstr "My account"
+
+msgid "my_account_description"
+msgstr "Manage your account and view your account history"
+

@@ -14,6 +14,31 @@ $(function()
       
     });
 
+    $("a.forgotpw").click(function() 
+    {
+        $('.home-wrapper.signin').hide('slow',function(){
+            
+        });
+        $('.home-wrapper.forgot').show('slow',function(){
+            
+        });
+        
+        return false;
+    });
+    
+  
+    $(".btn.btn-custom.signin").click(function()
+    {
+        $('.home-wrapper.signin').show('slow',function(){
+            
+        });
+        
+        $('.home-wrapper.forgot').hide('slow',function(){
+            
+        });
+        
+        return false;
+    })
 
     
 });

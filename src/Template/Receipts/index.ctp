@@ -1,6 +1,11 @@
 <div class="row">  
     <div class="col-sm-12 ">             
         <div class="table-responsive"> 
+            <?= $this->Html->link(__('Add'), 
+                      ['controller' => 'Receipts', 'action' => 'add'],
+                      ['class' => 'btn btn-custom btn-sqr animated fadeInDown wow']) 
+                ?> 
+            <br><br>
             <table class="table">
                 <thead>
                     <tr>

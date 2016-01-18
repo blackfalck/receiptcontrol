@@ -71,6 +71,6 @@
     <?= $this->Html->script('jquery.app') ?>
     
     <?= $this->Html->script('main') ?>
-  
+    <?php echo $this->Flash->render();  ?>
 </body>
 </html>

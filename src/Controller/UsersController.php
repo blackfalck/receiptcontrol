@@ -45,14 +45,12 @@ class UsersController extends AppController
             }
         }
         
-        $this->set('title', 'My account');
-        $this->set('subtitle', 'Manage your account and view your account history');
+        $this->set('title', 'my_account');
+        $this->set('subtitle', 'my_account_description');
         $this->set(compact('user'));
         $this->set('_serialize', ['user']);
     }
 
-    
-    
     public function logout()
     {
         return $this->redirect($this->Auth->logout());
@@ -76,12 +74,17 @@ class UsersController extends AppController
                 $this->Auth->setUser($user);
                 return $this->redirect($this->Auth->redirectUrl());
             }
-
+                
                 $this->Flash->error(__('Invalid email or password, try again'));
+                
+        
         }
+        
         
         $user = $this->Users->newEntity();
         
+        $this->set('title', 'login');
+        $this->set('subtitle', 'login_description');
         $this->set('page', 'login');
         $this->set(compact('user'));
         $this->set('_serialize', ['user']);
@@ -102,15 +105,12 @@ class UsersController extends AppController
                 return $this->redirect($this->referer());
             } else {
                 $this->Flash->error(__('The user could not be saved. Please, try again.'));
+                return $this->redirect($this->referer());
             }
         }
-        
-        
         $this->set(compact('user'));
         $this->set('_serialize', ['user']);
     }
-
-    
     
     /**
      * Forgot method
@@ -119,7 +119,7 @@ class UsersController extends AppController
      * @return \Cake\Network\Response|null Redirects to index.
      * @throws \Cake\Network\Exception\NotFoundException When record not found.
      */
-    public function forgot($id = null)
+    public function forgot()
     {
         if ($this->request->is(['patch', 'post', 'put'])) {
             $user = $this->Users->find('all')
@@ -139,85 +139,12 @@ class UsersController extends AppController
                  //send pw with email
                 if (mail($user['email'], 'Feedback', 'This is so useful, thanks!  '.$newpassword['password'])) {
                     $this->Flash->success(__('New Password requested'));
-                    return $this->redirect(['action' => 'forgot']);
+                    return $this->redirect(['action' => 'login']);
                 }
             } else {
                 $this->Flash->error(__('I am sorry something went wrong'));
-            }
-            
-            var_dump($user);
-            
-            //var_dump($user);
-            
-            exit;
-        }
-    }
-    
-    
-    /**
-     * View method
-     *
-     * @param string|null $id User id.
-     * @return void
-     * @throws \Cake\Network\Exception\NotFoundException When record not found.
-
-    public function view($id = null)
-    {
-        $user = $this->Users->get($id, [
-            'contain' => ['Receipts']
-        ]);
-        $this->set('user', $user);
-        $this->set('_serialize', ['user']);
-    }
-
-
-    /**
-     * Delete method
-     *
-     * @param string|null $id User id.
-     * @return \Cake\Network\Response|null Redirects to index.
-     * @throws \Cake\Network\Exception\NotFoundException When record not found.
-
-    public function delete($id = null)
-    {
-        $this->request->allowMethod(['post', 'delete']);
-        $user = $this->Users->get($id);
-        if ($this->Users->delete($user)) {
-            $this->Flash->success(__('The user has been deleted.'));
-        } else {
-            $this->Flash->error(__('The user could not be deleted. Please, try again.'));
-        }
-       return $this->redirect(['action' => 'index']);
-    }
-
-     * /**
-     * Edit method
-     *
-     * @param string|null $id User id.
-     * @return void Redirects on successful edit, renders view otherwise.
-     * @throws \Cake\Network\Exception\NotFoundException When record not found.
-
-    public function edit($id = null)
-    {
-        $user = $this->Users->get($id);
-        var_dump($user);exit;
-        if ($this->request->is(['patch', 'post', 'put'])) {
-
-            if(empty($this->request->data['password']) || $this->request->data['password'] == ""){
-
-               // $this->request->data['password'] =
-                unset($this->request->data['password']);
-            }
-            var_dump($this->request->data);
-            $user = $this->Users->patchEntity($user, $this->request->data);
-            if ($this->Users->save($user)) {
-                $this->Flash->success(__('The user has been saved.'));
-                return $this->redirect(['action' => 'index']);
-            } else {
-                $this->Flash->error(__('The user could not be saved. Please, try again.'));
+                return $this->redirect(['action' => 'login']);
             }
         }
-        $this->set(compact('user'));
-        $this->set('_serialize', ['user']);
-    }     */
+    }
 }
