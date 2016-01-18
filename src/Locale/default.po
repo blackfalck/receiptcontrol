@@ -18,6 +18,8 @@ msgstr ""
 msgid "The receipt has been saved."
 msgstr ""
 
+
+
 #: Controller/ReceiptsController.php:77;103
 msgid "The receipt could not be saved. Please, try again."
 msgstr ""
