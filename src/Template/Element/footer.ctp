@@ -17,7 +17,7 @@
         <div class="col-md-3 col-sm-6">
           <h5>Social</h5>
           <ul class="list-unstyled">
-            
+              <li>We aren't that social (yet)</li>
           </ul>
         </div>
 
@@ -33,7 +33,7 @@
           <address>
             Spijkenisse, the Netherlands<br>            
         <!--    <abbr title="Phone">P:</abbr> <br/>-->
-            E: <a href="mailto:info@receipt-manager.com">info@receipt-manager.com</a>
+            E: <a href="mailto:info@receipts-management.com">info@receipts-management.com</a>
           </address>
         </div>
 
@@ -42,8 +42,8 @@
       <div class="row">
         <div class="col-sm-12">
           <div class="footer-alt">
-            <p class="pull-right">2016 © Receipt-Manager</p>
-            <p class="logo"><i class="ion-social-buffer"></i>Receipt-Manager</p>
+            <p class="pull-right">2016 © Receipts Management</p>
+            <p class="logo"><i class="ion-social-buffer"></i>Receipts Management</p>
           </div>
         </div>
       </div>

@@ -700,3 +700,6 @@ div.message.error:before {
 div.message.hidden {
     height: 0;
 }
+.viewfile{
+    float:right;
+}

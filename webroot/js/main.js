@@ -1,9 +1,16 @@
 $(function()
 {    
-    $('.receipts .deleteimage').click(function()
+    $('.deleteimage').click(function()
     {        
-        $('.receipts img').remove();
-        $('.receipts .deleted').val(1)
+        $('.receiptimage').remove();
+        $('.deleteimageval').val(1)
+    });
+    
+    $('.viewfile').click(function()
+    {        
+        url = $('.receiptimage').attr('src');
+        var win = window.open(url, '_blank');
+        win.focus();
     });
     
     

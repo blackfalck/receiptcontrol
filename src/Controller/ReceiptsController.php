@@ -25,25 +25,25 @@ class ReceiptsController extends AppController
      */
     public function index()
     {
-        
-        //var_Dump($this->Auth->user('id'));
-        if (!empty($this->request->params['pass'])) {
-        // The 'pass' key is provided by CakePHP and contains all
-            // the passed URL path segments in the request.
-            $tags = $this->request->params['pass'][0];
-
-            // Use the BookmarksTable to find tagged bookmarks.
-            $this->Receipts = $this->Receipts->find('all', [
-                'conditions' => ['Receipts.title like' => '%'.$tags.'%']
-            ]);
+        if ($this->request->is(['patch', 'post', 'put'])) {             
             
-            foreach ($this->Receipts as $t) {
-                var_dump($t);
+            $receipts = $this->Receipts->find('all');
+            
+            if(isset($this->request->data['query']) && !empty($this->request->data['query'])){
+                $receipts->where(['Receipts.title like' => '%'.$this->request->data['query'].'%']);
             }
-            $this->set(['tags' => $tags]);
+            
+            if($this->request->data['year'] != 'all' && isset($this->request->data['year']) && !empty($this->request->data['year'])){
+                $receipts->where(['YEAR(Receipts.purchased) =' => $this->request->data['year']]);
+            }
         }
+        else{
+            $receipts = $this->Receipts->find('all');
+        }
+        
         $this->set('title', 'Receipts');
-        $this->set('receipts', $this->Receipts->find('all'));
+        $this->set('subtitle', 'overview receipts');
+        $this->set('receipts', $receipts);
         $this->set('_serialize', ['receipts']);
         
     }
@@ -58,6 +58,8 @@ class ReceiptsController extends AppController
     public function view($id = null)
     {
         $receipt = $this->Receipts->get($id);
+        $this->set('title', $receipt->title);
+        $this->set('subtitle', $receipt->description);
         $this->set('receipt', $receipt);
         $this->set('_serialize', ['receipt']);
     }
@@ -75,6 +77,7 @@ class ReceiptsController extends AppController
         }
      
         $this->set('title', 'Add receipt');
+        $this->set('subtitle', 'overview receipts');
         $this->set(compact('receipt'));
         $this->set('_serialize', ['receipt']);
     }
@@ -95,6 +98,7 @@ class ReceiptsController extends AppController
         }
         
         $this->set('title', 'Edit reciept');
+        $this->set('subtitle', 'Edit reciept sub');
         $this->set(compact('receipt'));
         $this->set('_serialize', ['receipt']);
     }
@@ -136,6 +140,13 @@ class ReceiptsController extends AppController
         $receipt = $this->Receipts->patchEntity($receipt, $this->request->data);
             
         if (isset($this->request->data['filename']['name']) && !empty($this->request->data['filename']['name'])) {
+            //if deleted is 1: empty filename + file_name original and delete image
+            if (isset($this->request->data['deleted']) && $this->request->data['deleted'] == "1") {
+                $this->removeimage($receipt->filename);
+                $receipt->filename = '';
+                $receipt->filename_original = '';
+            }
+            
             $original_filename = $this->request->data['filename']['name'];
             $uuid_filename = $this->Upload->send($this->request->data['filename']);
 
@@ -148,15 +159,9 @@ class ReceiptsController extends AppController
         } else {
             $receipt->filename = $receipt->getOriginal('filename');
         }
-
-        //if deleted is 1: empty filename + file_name original and delete image
-        if (isset($this->request->data['deleted']) && $this->request->data['deleted'] == "1") {
-            $this->removeimage($receipt->filename);
-            unset($receipt->filename, $receipt->filename_original);
-        }
-        $receipt->user_id = '29cdd135-fc9f-43ef-811c-315333e7abb5';
         
-
+        $receipt->user_id = $this->Auth->user('id');
+        
         if ($this->Receipts->save($receipt)) {
             if (!empty($original_name)) {
                 $this->removeimage($original_name);

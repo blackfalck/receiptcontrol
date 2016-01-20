@@ -7,7 +7,7 @@
     <meta name="author" content="Coderthemes">
     <link rel="shortcut icon" href="images/favicon.ico">
 
-    <title>Lugada - Landing Page</title>
+    <title>Receipts Management - Manage all your receipts in one environment</title>
 
     <!-- Bootstrap core CSS -->   
     <?= $this->Html->css('bootstrap.min.css') ?>
@@ -35,7 +35,7 @@
     
     <?php 
     if(isset($page) && $page == 'home'){
-       echo  $this->element('../Receipts/home');
+       echo  $this->element('../Pages/home');
     }
     elseif(isset($page) && $page == 'login')
     {
