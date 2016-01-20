@@ -76,10 +76,7 @@ class UsersController extends AppController
             }
                 
                 $this->Flash->error(__('Invalid email or password, try again'));
-                
-        
         }
-        
         
         $user = $this->Users->newEntity();
         

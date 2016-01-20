@@ -68,7 +68,7 @@ class ReceiptsTable extends Table
             ->allowEmpty('warranty');
 
         $validator
-            ->add('purchased', 'valid', ['rule' => 'datetime'])
+            ->add('purchased', 'valid', ['rule' => 'date'])
             ->allowEmpty('purchased');
 
         return $validator;

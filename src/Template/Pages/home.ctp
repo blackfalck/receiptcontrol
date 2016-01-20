@@ -1,7 +1,5 @@
 <!-- Pre-loader -->
-<div class="preloader">
-   <div class="status">&nbsp;</div>
-</div>
+
 
   <!-- HOME -->
   <section class="home bg-dark">
@@ -15,7 +13,7 @@
           <!-- LOGO -->
           <a class="navbar-brand logo" href="/">
             <i class="ion-social-buffer"></i>
-              <span>Lugada</span>
+              <span>Receipts Management</span>
           </a>
         </div>
         <!-- end navbar-header -->
@@ -32,7 +30,7 @@
       <div class="row">
         <div class="col-sm-6 text-left">
           <div class="home-wrapper">
-            <h1 class="animated fadeInDown wow home-title" data-wow-delay=".1s">Receipt Control</h1>
+            <h1 class="animated fadeInDown wow home-title" data-wow-delay=".1s">Receipts Management</h1>
             <h4 class="animated fadeInDown wow" data-wow-delay=".2s">
                 Don't you just hate it when something stops working and the store asks for the receipt, but you've lost it. 
                 Have full control over your receipts!<br>
@@ -88,7 +86,7 @@
                       [
                           'type' => 'text',
                           'class' => 'form-control',
-                          'placeholder' => 'password',
+                          'placeholder' => 'Password',
                           'required' => 'required'
                           
                           ]); 
