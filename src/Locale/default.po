@@ -513,7 +513,7 @@ msgid "about"
 msgstr "About"
 
 msgid "about_me"
-msgstr "My name is Mitchell and I am the creator of this application. It's nice to meet you. I hope you enjoy using my appication."
+msgstr "My name is Mitchell and I am the creator of this application. It's nice to meet you. I hope you enjoy using my application."
 
 msgid "contact"
 msgstr "Contact"
