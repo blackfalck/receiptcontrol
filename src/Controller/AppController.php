@@ -55,7 +55,15 @@ class AppController extends Controller
             ]
         ]);
         
-        $locale = (!empty($this->request->session()->read('locale')) ? $this->request->session()->read('locale') : 'en_US');
+        if(!empty($this->request->session()->read('locale'))){
+            $locale = $this->request->session()->read('locale');
+        }
+        else{
+           $locale = 'en_US';
+           $session = $this->request->session();
+           $session->write('locale', $locale);
+        }
+        
         I18n::locale($locale);
     }
 
