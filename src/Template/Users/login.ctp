@@ -72,7 +72,7 @@
               <div class="form-group">
               <?= $this->Form->input( 'password', 
                       [
-                          'type' => 'text',
+                          'type' => 'password',
                           'class' => 'form-control',
                           'placeholder' => __('password'),
                           'required' => 'required'
