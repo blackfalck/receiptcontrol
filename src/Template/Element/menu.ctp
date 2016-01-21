@@ -23,11 +23,11 @@
             <?= $this->Html->link(__('english'), ['controller' => 'Locale', 'action' => 'change' , 'en_US']) ?>
             <?= $this->Html->image('en_US.png', ["alt" => "English"]);?>
           </li>
-          <li>
+          <li style="display:none;">
             <?= $this->Html->link(__('dutch'), ['controller' => 'Locale', 'action' => 'change' , 'nl_NL']) ?>
             <?= $this->Html->image('nl_NL.png', ["alt" => "Nederlands"]);?> 
           </li>
-          <li>
+          <li style="display:none;">
             <?= $this->Html->link(__('german'), ['controller' => 'Locale', 'action' => 'change' , 'de_DE']) ?>
            <?= $this->Html->image('de_DE.png', ["alt" => "Deutsch"]);?>   
           </li>
