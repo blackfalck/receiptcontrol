@@ -4,3 +4,252 @@ msgstr "My account"
 msgid "my_account_description"
 msgstr "Manage your account and view your account history"
 
+msgid "receipts_management"
+msgstr "Receipts Management"
+
+msgid "home"
+msgstr "Home"
+
+msgid "sign_in"
+msgstr "Sign in"
+
+msgid "faq"
+msgstr "FAQ"
+
+msgid "social"
+msgstr "Social"
+
+msgid "social_text"
+msgstr "We aren't that social (yet)"
+
+msgid "about"
+msgstr "About"
+
+msgid "about_me"
+msgstr "My name is Mitchell and I am the creator of this application. It's nice to meet you. I hope you enjoy using my appication."
+
+msgid "contact"
+msgstr "Contact"
+
+msgid "address"
+msgstr "Spijkenisse, the Netherlands"
+
+
+msgid "my_account"
+msgstr "My account"
+
+msgid "receipts"
+msgstr "Receipts"
+
+msgid "faq"
+msgstr "FAQ"
+
+msgid "language"
+msgstr "Language"
+
+msgid "english"
+msgstr "English"
+
+msgid "dutch"
+msgstr "Dutch"
+
+msgid "german"
+msgstr "German"
+
+msgid "main_subtitle"
+msgstr "Manage all your receipts in one environment"
+
+msgid "faq_service_safe_title"
+msgstr "Is this service safe?"
+
+msgid "faq_service_safe_description"
+msgstr "We put a lot of effort into making this service as safe as possible. We encrypt your passwords, receipts can only be accessed by yourself. And we will soon add a feature where logins and login attempt will be recorded and be available to view in your account."
+ 
+msgid "faq_how_long_title"
+msgstr "How long will my receipt be stored?"
+
+msgid "faq_how_long_description"
+msgstr "We would love to say "for ever!", however we can't. Because storage is expensive we won't keep the receipts for ever. How ever we will keep them for at least 5 years, and if we are deleting receipts from a certain year we will give you a heads-up ;)."
+
+msgid "faq_delete_account_title"
+msgstr "Can I delete my account?"
+
+msgid "faq_delete_account_description"
+msgstr "Nope, not yet. We will implement this soon though. With the removal of your account all of your receipts will also be removed after a while. (not directly in case you make a mistake)."
+              
+msgid "home_subtitle"
+msgstr "Don't you just hate it when something stops working and the store asks for the receipt, but you've lost it. Have full control over your receipts!<br> And yep, it is free."
+
+msgid "learn_more"
+msgstr "Learn more"
+
+msgid "login"
+msgstr "Login"
+
+msgid "full_name"
+msgstr "Full name"
+
+msgid "email"
+msgstr "Email"
+
+msgid "password"
+msgstr "Password"
+
+msgid "sign_up"
+msgstr "Sign up"
+
+msgid "home_service_title"
+msgstr "Best Services"
+
+msgid "home_service_subtitle"
+msgstr "Constituto voluptatibus mei ex. Eum soleat lorem Ipsum is simply dummy<br/> text of the printing and typesetting industry."
+
+msgid "home_infoblock1_title"
+msgstr "Strategy Solutions"
+
+msgid "home_infoblock1_text"
+msgstr "We put a lot of effort in design, as it’s the most important ingredient of successful website.Sed ut perspiciatis unde omnis iste natus error sit."
+
+msgid "home_infoblock2_title"
+msgstr "Digital Design"
+
+msgid "home_infoblock2_text"
+msgstr "We put a lot of effort in design, as it’s the most important ingredient of successful website.Sed ut perspiciatis unde omnis iste natus error sit."
+
+msgid "home_infoblock3_title"
+msgstr "SEO"
+
+msgid "home_infoblock3_text"
+msgstr "We put a lot of effort in design, as it’s the most important ingredient of successful website.Sed ut perspiciatis unde omnis iste natus error sit."
+
+msgid "home_infoblock4_title"
+msgstr "Graphic Design"
+
+msgid "home_infoblock4_text"
+msgstr "We put a lot of effort in design, as it’s the most important ingredient of successful website.Sed ut perspiciatis unde omnis iste natus error sit."
+
+msgid "home_infoblock5_title"
+msgstr "Analystics"
+
+msgid "home_infoblock5_text"
+msgstr "We put a lot of effort in design, as it’s the most important ingredient of successful website.Sed ut perspiciatis unde omnis iste natus error sit."
+
+msgid "home_infoblock6_title"
+msgstr "Dedicated Support"
+
+msgid "home_infoblock6_text"
+msgstr "We put a lot of effort in design, as it’s the most important ingredient of successful website.Sed ut perspiciatis unde omnis iste natus error sit."
+
+msgid "title"
+msgstr "Title"
+
+msgid "description"
+msgstr "Description"
+
+msgid "filename"
+msgstr "Filename"
+
+msgid "warranty"
+msgstr "Warranty"
+
+msgid "purchased"
+msgstr "Purchased"
+
+msgid "save"
+msgstr "Save"
+
+msgid "remove_receipt"
+msgstr "Remove receipt"
+
+msgid "view_receipt"
+msgstr "View Receipt"
+
+msgid "add"
+msgstr "Add"
+
+msgid "year"
+msgstr "Year"
+
+msgid "search"
+msgstr "Search"
+
+msgid "month"
+msgstr "Month"
+
+msgid "months"
+msgstr "Months"
+
+msgid "are_you_sure"
+msgstr "Are you sure?"
+
+msgid "under_warranty"
+msgstr "Under warranty"
+
+msgid "created_text"
+msgstr "created"
+
+msgid "logout"
+msgstr "Logout"
+
+msgid "full_name_error"
+msgstr "Please fill in your full name"
+
+msgid "email_error"
+msgstr "Please fill in your email"
+
+msgid "password_error"
+msgstr "Please fill in your password" 
+
+msgid "login"
+msgstr "Login"
+
+msgid "submit"
+msgstr "Submit"
+
+msgid "forgot_passwordq"
+msgstr "Forgot password?"
+
+msgid "forgot_password"
+msgstr "Forgot Password"
+
+msgid "overview_receipts"
+msgstr "Overview receipts"
+
+msgid "add_receipt"
+msgstr "Add receipt"
+
+msgid "add_receipts_sub"
+msgstr "Make sure you never lose it!"
+
+msgid "receipts"
+msgstr "Receipts"
+
+msgid "receipts_sub"
+msgstr "View all your added receipts, also use the filters and search if you like"
+
+msgid "edit_reciept"
+msgstr "Edit your receipt"
+
+msgid "edit_reciept_sub"
+msgstr "Edit a previously added receipt"
+
+msgid "my_account"
+msgstr "My account"
+
+msgid "my_account_sub"
+msgstr "My account overview"
+
+msgid "login"
+msgstr "Login"
+
+msgid "login_description"
+msgstr "Login into your account"
+
+msgid "faq_description"
+msgstr "Frequently asked question"
+
+msgid "delete_receipt"
+msgstr "Delete receipt"
+
+warranty_months
+Warranty months

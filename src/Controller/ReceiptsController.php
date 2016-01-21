@@ -25,24 +25,22 @@ class ReceiptsController extends AppController
      */
     public function index()
     {
-        if ($this->request->is(['patch', 'post', 'put'])) {             
-            
+        if ($this->request->is(['patch', 'post', 'put'])) {
             $receipts = $this->Receipts->find('all');
             
-            if(isset($this->request->data['query']) && !empty($this->request->data['query'])){
+            if (isset($this->request->data['query']) && !empty($this->request->data['query'])) {
                 $receipts->where(['Receipts.title like' => '%'.$this->request->data['query'].'%']);
             }
             
-            if($this->request->data['year'] != 'all' && isset($this->request->data['year']) && !empty($this->request->data['year'])){
+            if ($this->request->data['year'] != 'year' && isset($this->request->data['year']) && !empty($this->request->data['year'])) {
                 $receipts->where(['YEAR(Receipts.purchased) =' => $this->request->data['year']]);
             }
-        }
-        else{
+        } else {
             $receipts = $this->Receipts->find('all');
         }
         
-        $this->set('title', 'Receipts');
-        $this->set('subtitle', 'overview receipts');
+        $this->set('title', 'receipts');
+        $this->set('subtitle', 'receipts_sub');
         $this->set('receipts', $receipts);
         $this->set('_serialize', ['receipts']);
         
@@ -58,6 +56,7 @@ class ReceiptsController extends AppController
     public function view($id = null)
     {
         $receipt = $this->Receipts->get($id);
+       
         $this->set('title', $receipt->title);
         $this->set('subtitle', $receipt->description);
         $this->set('receipt', $receipt);
@@ -76,8 +75,9 @@ class ReceiptsController extends AppController
             $this->saveWithImage($this->request->data, $receipt);
         }
      
-        $this->set('title', 'Add receipt');
-        $this->set('subtitle', 'overview receipts');
+        $this->set('title', 'add_receipt');
+        $this->set('subtitle', 'add_receipts_sub');
+        
         $this->set(compact('receipt'));
         $this->set('_serialize', ['receipt']);
     }
@@ -97,8 +97,8 @@ class ReceiptsController extends AppController
             $this->saveWithImage($this->request->data, $receipt);
         }
         
-        $this->set('title', 'Edit reciept');
-        $this->set('subtitle', 'Edit reciept sub');
+        $this->set('title', 'edit_reciept');
+        $this->set('subtitle', 'edit_reciept_sub');
         $this->set(compact('receipt'));
         $this->set('_serialize', ['receipt']);
     }

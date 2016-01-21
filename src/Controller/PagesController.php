@@ -43,14 +43,14 @@ class PagesController extends AppController
     
     public function faq()
     {
-        $this->set('title', 'FAQ');
-        $this->set('subtitle', 'FAQ desc');
+        $this->set('title', 'faq');
+        $this->set('subtitle', 'faq_description');
         $this->set('_serialize');
     }
     public function home()
     {
         $id = $this->Auth->user('id');
-        if(isset($id)){
+        if (isset($id)) {
             return $this->redirect(['controller' => 'Receipts', 'action' => 'index']);
         }
         

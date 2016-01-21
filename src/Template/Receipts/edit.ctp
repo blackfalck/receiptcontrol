@@ -9,40 +9,49 @@
         <div class="form-group col-sm-12">        
             <?=$this->Form->input('title', [
               'type' => 'text',
-              'class' => 'form-control']
+              'class' => 'form-control',
+               'value' => $receipt->title]
                   )?>        
         </div>
         
         <div class="form-group col-sm-12">
             <?=$this->Form->input('description', [
               'type' => 'text',
-              'class' => 'form-control']
+              'class' => 'form-control',
+               ' label' => __('description'),
+               'value' => $receipt->description]
                   )?> 
         </div>
         
         <div class="form-group col-sm-12">
             <?=$this->Form->input('warranty', [
               'class' => 'form-control',
+               'value' => $receipt->warranty,
                 'autocomplete' => 'off',
-                'label' => 'Warranty months']
+                'label' => __('warranty_months')]
                   )?> 
         </div>
         
         <div class="form-group col-sm-12">
-            <?=$this->Form->input('purchased', [
-              'class' => 'form-control']
+            <label for="purchased"><?=__('purchased')?></label>
+            <?=$this->Form->date('purchased', [
+                'label' => __('purchased'),
+              'class' => 'form-control',
+               'value' => $receipt->purchased,
+                ]
                   )?> 
         </div>
         
          <div class="form-group col-sm-12">
         <?=$this->Form->input('filename', [
                   'type' => 'file',
-                  'class' => 'form-control']
+                  'class' => 'form-control',
+                    'label' => __('filename')]
                       )?> 
        </div>
         
         <div class="form-group col-sm-12">
-             <?= $this->Form->button('Save',[
+             <?= $this->Form->button(__('save'),[
                     'class'=> 'btn btn-custom'
                 ]); ?> 
             
@@ -65,14 +74,15 @@
                            ]); 
 
                        echo '<br>';
-                       echo $this->Form->button('remove receipt' , ['type' => 'button', 'class' => 'deleteimage btn btn-custom']); 
+                       echo $this->Form->button(__('delete_receipt') , ['type' => 'button', 'class' => 'deleteimage btn btn-custom']); 
                        echo $this->Form->hidden('deleted', ['value' => 0, 'class' => 'deleteimageval']);
                    }
 
-                   echo $this->Form->button('view receipt' , ['type' => 'button', 'class' => 'viewfile btn btn-custom']); 
+                   echo $this->Form->button(__('view_receipt') , ['type' => 'button', 'class' => 'viewfile btn btn-custom']); 
                }
             ?>
         </div>
     </div>
 </div>
 <?= $this->Form->end() ?>
+

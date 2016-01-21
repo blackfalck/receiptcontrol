@@ -10,7 +10,7 @@
           <!-- LOGO -->
           <a class="navbar-brand logo" href="/">
             <i class="ion-social-buffer"></i>
-              <span>Lugada</span>
+              <span>Receipts Management</span>
           </a>
         </div>
         <!-- end navbar-header -->

@@ -3,7 +3,8 @@
     <div class="form-group col-sm-4">        
         <?=$this->Form->input('title', [
           'type' => 'text',
-          'class' => 'form-control']
+          'class' => 'form-control',
+            'label' => __('title')]
               )?>        
     </div>
 </div>
@@ -12,7 +13,8 @@
     <div class="form-group col-sm-4">
         <?=$this->Form->input('description', [
           'type' => 'text',
-          'class' => 'form-control']
+          'class' => 'form-control',
+            'label' => __('description')]
               )?> 
         
     </div>
@@ -22,7 +24,8 @@
     <div class="form-group col-sm-4">
         <?=$this->Form->input('filename', [
           'type' => 'file',
-          'class' => 'form-control']
+          'class' => 'form-control',
+            'label' => __('filename')]
               )?> 
         
     </div>
@@ -31,8 +34,9 @@
     <div class="form-group col-sm-4">
         <?=$this->Form->input('warranty', [
           'class' => 'form-control',
+            'value' => $receipt->warranty,
             'autocomplete' => 'off',
-            'label' => 'Warranty months']
+            'label' => __('Warranty_months')]
               )?> 
         
     </div>
@@ -42,7 +46,9 @@
         
                 
         <?=$this->Form->input('purchased', [
-          'class' => 'form-control']
+          'class' => 'form-control',
+            'value' => $receipt->purchased,
+             'label' => __('purchased')]
               )?> 
         
     </div>
@@ -50,7 +56,7 @@
 
 <div class="row col-sm-12"> 
     <div class="form-group col-sm-4">
-     <?= $this->Form->button('Save',[
+     <?= $this->Form->button(__('save'),[
             'class'=> 'btn btn-custom'
         ]); ?> 
     <?= $this->Form->end() ?>
