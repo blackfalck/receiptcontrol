@@ -123,10 +123,10 @@ class UsersController extends AppController
             $user = $this->Users->find('all')
                     ->where(['email' => $this->request->data['email']])
                     ->first();
-            
+           
             if (!isset($user)) {
                 $this->Flash->error(__('I am sorry something went wrong'));
-                return $this->redirect(['action' => 'forgot']);
+                return $this->redirect(['action' => 'login']);
             }
             
             $newpassword['password'] = substr(sha1(Text::uuid()), 0, 12);

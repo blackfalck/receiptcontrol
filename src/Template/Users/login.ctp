@@ -110,12 +110,13 @@
               <h3 class="text-center"> <?= __('forgot_password') ?> </h3>
               <div class="form-group text-center">
 
-                  <?= $this->Form->input( __('email'), 
+                  <?= $this->Form->input('email', 
                     [
                         'type' => 'email',
                         'class' => 'form-control',
                         'placeholder' => 'email',
-                        'required' => 'required'
+                        'required' => 'required',
+                        'label' => __('email')
 
                         ]); 
                   ?>

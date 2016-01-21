@@ -35,8 +35,14 @@ class ReceiptsController extends AppController
             if ($this->request->data['year'] != 'year' && isset($this->request->data['year']) && !empty($this->request->data['year'])) {
                 $receipts->where(['YEAR(Receipts.purchased) =' => $this->request->data['year']]);
             }
+            $receipts->where(['user_id' => $this->Auth->user('id')]);
         } else {
-            $receipts = $this->Receipts->find('all');
+            
+            
+            $receipts = $this->Receipts->find('all')
+                    ->where([
+                        'user_id' => $this->Auth->user('id')
+                            ]);
         }
         
         $this->set('title', 'receipts');
@@ -55,7 +61,11 @@ class ReceiptsController extends AppController
      */
     public function view($id = null)
     {
-        $receipt = $this->Receipts->get($id);
+        $receipt = $this->Receipts->get($id, [
+                    'user_id' => [$this->Auth->user('id')]]);
+                
+                
+               
        
         $this->set('title', $receipt->title);
         $this->set('subtitle', $receipt->description);
@@ -91,7 +101,8 @@ class ReceiptsController extends AppController
      */
     public function edit($id = null)
     {
-        $receipt = $this->Receipts->get($id);
+        $receipt = $this->Receipts->get($id, [
+                    'user_id' => [$this->Auth->user('id')]]);
         
         if ($this->request->is(['patch', 'post', 'put'])) {
             $this->saveWithImage($this->request->data, $receipt);
@@ -113,7 +124,8 @@ class ReceiptsController extends AppController
     public function delete($id = null)
     {
         $this->request->allowMethod(['post', 'delete']);
-        $receipt = $this->Receipts->get($id);
+        $receipt = $this->Receipts->get($id, [
+                    'user_id' => [$this->Auth->user('id')]]);
         $filename = $receipt->filename;
         
         if ($this->Receipts->delete($receipt)) {

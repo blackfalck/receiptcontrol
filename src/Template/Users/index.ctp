@@ -10,10 +10,11 @@
 <?= $this->Form->create($user) ?>
 <div class="row col-sm-12">            
     <div class="form-group col-sm-4">      
-      <?=$this->Form->input(__('full_name'), [
+      <?=$this->Form->input('fullname', [
           'type' => 'text',
           'class' => 'form-control',
-          'value' => $user->fullname
+          'value' => $user->fullname,
+          'label' => __('full_name')
           ]
               )?>
       <div class="error" id="err-name" style="display: none;"><?=__('full_name_error')?></div>
@@ -23,9 +24,10 @@
 
 <div class="row col-sm-12">            
     <div class="form-group col-sm-4">      
-      <?=$this->Form->input(__('email'), [
+      <?=$this->Form->input('email', [
           'class' => 'form-control',
-          'value' => $user->email]
+          'value' => $user->email,
+          'label' => __('email')]
               )?>
       <div class="error" id="err-name" style="display: none;"><?=__('email_error')?></div>
     </div> 
@@ -33,10 +35,12 @@
 
 <div class="row col-sm-12">            
     <div class="form-group col-sm-4">      
-      <?=$this->Form->input(__('password'), [
+      <?=$this->Form->input('password', [
           'class' => 'form-control',
           'value' => "",
-          'required' => false
+          'type' => 'password',
+          'required' => false,
+          'label' => __('password')
           ]
               )?>
       <div class="error" id="err-name" style="display: none;"><?=__('password_error')?></div>
