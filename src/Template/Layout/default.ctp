@@ -7,7 +7,7 @@
     <meta name="author" content="Coderthemes">
     <link rel="shortcut icon" href="img/favicon.ico">
 
-    <title>Receipts Management - Manage all your receipts in one environment</title>
+    <title>Receipts Management - <?=__('main_subtitle')?> </title>
 
     <!-- Bootstrap core CSS -->   
     <?= $this->Html->css('bootstrap.min.css') ?>

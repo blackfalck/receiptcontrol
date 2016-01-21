@@ -15,7 +15,7 @@
           <!-- LOGO -->
           <a class="navbar-brand logo" href="/">
             <i class="ion-social-buffer"></i>
-              <span>Lugada</span>
+              <span>Receipts Management</span>
           </a>
         </div>
         <!-- end navbar-header -->
@@ -32,7 +32,7 @@
       <div class="row">
         <div class="col-sm-6 text-left">
           <div class="home-wrapper">
-            <h1 class="animated fadeInDown wow home-title" data-wow-delay=".1s"><?= __('Sign in') ?></h1>
+            <h1 class="animated fadeInDown wow home-title" data-wow-delay=".1s"><?= __('sign_in') ?></h1>
             <h4 class="animated fadeInDown wow" data-wow-delay=".2s">
                 Don't you just hate it when something stops working and the store asks for the receipt, but you've lost it. 
                 Have full control over your receipts!<br>
@@ -56,36 +56,36 @@
                   'role'=>'form'
               ]) ?>
               
-              <h3 class="text-center"> Login </h3>
+              <h3 class="text-center"> <?= __('login') ?> </h3>
               
               <div class="form-group">
-              <?= $this->Form->input('email', 
+              <?= $this->Form->input( 'email', 
                       [
                           'type' => 'text',
                           'class' => 'form-control',
-                          'placeholder' => 'Email',
+                          'placeholder' => __('email'),
                           'required' => 'required'
                           
                           ]); 
                 ?>
                   </div>
               <div class="form-group">
-              <?= $this->Form->input('password', 
+              <?= $this->Form->input( 'password', 
                       [
                           'type' => 'text',
                           'class' => 'form-control',
-                          'placeholder' => 'password',
+                          'placeholder' => __('password'),
                           'required' => 'required'
                           
                           ]); 
                 ?>
               </div>
                <div class="form-group text-center">
-               <?= $this->Form->button('Sign in',[
+               <?= $this->Form->button( __('sign_in'),[
                    'class'=> 'btn btn-custom'
                ]); ?> 
                    
-               <?= $this->Html->link(__('Forgot password?'), [
+               <?= $this->Html->link(__('forgot_passwordq'), [
                    'controller' => 'users', 'action' => 'forgot'
                    ],
                    ['class' => 'forgotpw']) 
@@ -94,11 +94,8 @@
               <?= $this->Form->end() ?>
                
             </div>
-            
-            
           
             <div class="home-wrapper forgot" style="display:none;">                
-
 
               <?= $this->Form->create(null, [
                 'url' => [
@@ -110,10 +107,10 @@
                 'role'=>'form'
                ]) ?>
 
-              <h3 class="text-center"> <?= __('Forgot Password') ?> </h3>
+              <h3 class="text-center"> <?= __('forgot_password') ?> </h3>
               <div class="form-group text-center">
 
-                  <?= $this->Form->input('email', 
+                  <?= $this->Form->input( __('email'), 
                     [
                         'type' => 'email',
                         'class' => 'form-control',
@@ -125,11 +122,11 @@
 
               </div>
               <div class="form-group text-right">
-                  <?= $this->Form->button('Sign in',[
+                  <?= $this->Form->button( __('sign_in'),[
                         'class'=> 'btn btn-custom signin'
                     ]); ?>
                   
-                  <?= $this->Form->button('Submit',[
+                  <?= $this->Form->button( __('submit'),[
                       'class'=> 'btn btn-custom'
                   ]); ?> 
 

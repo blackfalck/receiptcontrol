@@ -1,7 +1,7 @@
 <div class="row">  
     <div class="col-sm-12 ">  
         <div class="col-sm-5">
-            <?= $this->Html->link(__('Add'), 
+            <?= $this->Html->link(__('add'), 
                       ['controller' => 'Receipts', 'action' => 'add'],
                       ['class' => 'btn btn-custom btn-sqr animated fadeInDown wow']) 
                 ?> 
@@ -18,7 +18,7 @@
                   'role'=>'form'
               ]) ?>
             <?=  $this->Form->select('year', [
-                       'all'  => 'all',
+                       'year'  => __('year'),
                        '2016' => '2016',
                        '2015' => '2015',
                        '2014' => '2014',
@@ -35,13 +35,13 @@
                       [
                           'type' => 'text',
                           'class' => 'form-control',
-                          'placeholder' => 'Search',
+                          'placeholder' => __('search'),
                           'label' => false
                           ]); 
                 ?>
             </div>
          <div class="col-sm-1">   
-            <?= $this->Form->button('Search',[
+            <?= $this->Form->button(__('search'),[
                    'class'=> 'btn btn-custom'
                ]); ?> 
             
@@ -60,7 +60,7 @@
                         <th><?= __('title') ?></th>
                         <th><?= __('warranty') ?></th>
                         <th><?= __('purchased') ?></th>      
-                        <th><?= __('under warranty') ?></th>
+                        <th><?= __('under_warranty') ?></th>
                         <th class="actions"><?= __('Actions') ?></th>
                     </tr>
                 </thead>
@@ -72,10 +72,10 @@
                         <td><?= h($receipt->warranty)?> 
                             <?php
                             if($receipt->warranty == 1){
-                               echo __('Month');
+                               echo __('month');
                             }
                             else{
-                                echo __('Months');
+                                echo __('months');
                             }                        
                          ?>
                         </td>
@@ -101,7 +101,7 @@
                             <a href="/receipts/edit/<?=$receipt->id?>">
                                 <span class="glyphicon glyphicon-pencil"></span>
                             </a>
-                            <a href="/receipts/delete/5965fbbb-3ad0-4664-9a84-d346225ce286" onclick="return confirm('Are you sure?')">
+                            <a href="/receipts/delete/5965fbbb-3ad0-4664-9a84-d346225ce286" onclick="return confirm(<?=__('are_you_sure')?>)">
                                 <span class="glyphicon glyphicon-trash"></span>
                             </a>
                         </td>

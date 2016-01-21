@@ -13,7 +13,6 @@ $(function()
         win.focus();
     });
     
-    
     $('tr.clickabletr').click(function()
     {
         var url ='/'+$(this).attr('type')+'/'+$(this).attr('action')+'/'+$(this).attr('id');
@@ -46,6 +45,4 @@ $(function()
         
         return false;
     })
-
-    
 });

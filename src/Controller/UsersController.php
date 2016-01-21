@@ -46,7 +46,7 @@ class UsersController extends AppController
         }
         
         $this->set('title', 'my_account');
-        $this->set('subtitle', 'my_account_description');
+        $this->set('subtitle', 'my_account_sub');
         $this->set(compact('user'));
         $this->set('_serialize', ['user']);
     }
@@ -134,7 +134,7 @@ class UsersController extends AppController
             
             if ($this->Users->save($user)) {
                  //send pw with email
-                if (mail($user['email'], 'Feedback', 'This is so useful, thanks!  '.$newpassword['password'])) {
+                if (mail($user['email'], 'Your new password', 'Hi, you can login with the new password:  '.$newpassword['password'])) {
                     $this->Flash->success(__('New Password requested'));
                     return $this->redirect(['action' => 'login']);
                 }

@@ -9,8 +9,9 @@
         <?= $this->Form->hidden('id') ?>
         
         <div class="form-group col-sm-12">
-            <?=$this->Form->input('warranty', [
+            <?=$this->Form->input(__('warranty'), [
               'class' => 'form-control',
+                'value' => $receipt->warranty,
                 'autocomplete' => 'off',
                 'label' => 'Warranty months',
                 'readonly' ]
@@ -18,7 +19,7 @@
         </div>
     
         <div class="form-group col-sm-12">
-            <?=$this->Form->input('gekocht', [
+            <?=$this->Form->input(__('purchased'), [
               'class' => 'form-control',
                 'value' => date('d-m-Y ', strtotime($receipt->purchased)),
                 'readonly']
@@ -26,7 +27,7 @@
         </div>
         
         <div class="form-group col-sm-12">
-            <?=$this->Form->input('Aangemaakt', [
+            <?=$this->Form->input('created_text', [
                 'class' => 'form-control',
                  'value' => date('d-m-Y ', strtotime($receipt->created)),
                  'readonly']
@@ -52,11 +53,11 @@
                         ]); 
 
                     echo '<br>';
-                    echo $this->Form->button('remove receipt' , ['type' => 'button', 'class' => 'deleteimage btn btn-custom']); 
+                    
                     echo $this->Form->hidden('deleted', ['value' => 0, 'class' => 'deleteimageval']);
                 }
                 
-                echo $this->Form->button('view receipt' , ['type' => 'button', 'class' => 'viewfile btn btn-custom']); 
+                echo $this->Form->button(__('view_receipt') , ['type' => 'button', 'class' => 'viewfile btn btn-custom']); 
             }
          ?>
     </div>

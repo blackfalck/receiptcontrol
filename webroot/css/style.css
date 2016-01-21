@@ -703,3 +703,11 @@ div.message.hidden {
 .viewfile{
     float:right;
 }
+.dropdown-menu.arrow li a{
+    float:left;
+}
+.dropdown-menu.arrow li img{
+    float:right;
+    margin-right: 10px;
+    margin-top: 5px;
+}
